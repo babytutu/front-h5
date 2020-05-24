@@ -56,5 +56,6 @@ module.exports = {
 
     config.resolve.alias
       .set('static', resolve('public/static'))
-  }
+  },
+  publicPath: './'
 }

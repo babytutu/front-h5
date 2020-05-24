@@ -2,11 +2,14 @@
   "name": "front-h5",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://babytutu.github.io/front-h5",
   "scripts": {
     "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vant": "~2.8.2",
@@ -28,6 +31,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^2.2.0",
     "postcss-pxtorem": "^5.1.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
