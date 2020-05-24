@@ -1,0 +1,30 @@
+{
+  "result_code": 1,
+  "data": {
+    "list": [
+      {
+        "title": "常见问题",
+        "router": "list",
+        "icon": "info-o"
+      },
+      {
+        "title": "Vant",
+        "router": "url/https%3A%2F%2Fyouzan.github.io%2Fvant%2Fmobile.html/Vant",
+        "icon": "star-o",
+        "label": "有赞"
+      },
+      {
+        "title": "Mint UI",
+        "router": "url/https%3A%2F%2Felemefe.github.io%2Fmint-ui/Mint UI",
+        "icon": "star-o",
+        "label": "饿了么"
+      },
+      {
+        "title": "cube-ui",
+        "router": "url/https%3A%2F%2Fdidi.github.io%2Fcube-ui%2Fexample/cube-ui",
+        "icon": "star-o",
+        "label": "滴滴"
+      }
+    ]
+  }
+}
