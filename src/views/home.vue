@@ -6,11 +6,8 @@
         v-for="item in list"
         :key="item.router"
         :title="item.title"
-        :icon="item.icon"
         is-link
-        center
         :label="item.label"
-        :url="item.url"
         :to="item.router">
         <template #right-icon v-if="item.arrow">
           <van-icon :name="item.arrow" size="16" />

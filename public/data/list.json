@@ -5,25 +5,17 @@
       {
         "title": "常见问题",
         "router": "list",
-        "icon": "info-o"
+        "label": "面试问题"
+      },
+      {
+        "title": "blog",
+        "router": "/url/https%3A%2F%2Fbabytutu.github.io/blog",
+        "label": "学无止境"
       },
       {
         "title": "Vant",
-        "router": "url/https%3A%2F%2Fyouzan.github.io%2Fvant%2Fmobile.html/Vant",
-        "icon": "star-o",
-        "label": "有赞"
-      },
-      {
-        "title": "Mint UI",
-        "router": "url/https%3A%2F%2Felemefe.github.io%2Fmint-ui/Mint UI",
-        "icon": "star-o",
-        "label": "饿了么"
-      },
-      {
-        "title": "cube-ui",
-        "router": "url/https%3A%2F%2Fdidi.github.io%2Fcube-ui%2Fexample/cube-ui",
-        "icon": "star-o",
-        "label": "滴滴"
+        "router": "/url/https%3A%2F%2Fyouzan.github.io%2Fvant%2Fmobile.html/Vant",
+        "label": "有赞vant组件库"
       }
     ]
   }

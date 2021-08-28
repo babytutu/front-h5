@@ -4,13 +4,15 @@ module.exports = {
     node: true
   },
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/vue3-essential',
     '@vue/standard'
   ],
-  rules: {
-    'comma-dangle': [0]
-  },
   parserOptions: {
     parser: 'babel-eslint'
+  },
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'comma-dangle': [0],
   }
 }

@@ -1,27 +1,25 @@
 <template>
-  <div id="app">
-    <!-- @see https://youzan.github.io/vant/#/zh-CN/sticky -->
-    <van-sticky>
-      <!-- @see https://youzan.github.io/vant/#/zh-CN/nav-bar -->
-      <van-nav-bar
-        :title="$route.meta.title"
-        @click-left="$router.push('/')"
-      >
-        <template #left v-if="!$route.meta.home">
-          <van-icon name="wap-nav" size="20" color="#666" />
-        </template>
-      </van-nav-bar>
-    </van-sticky>
-    <router-view/>
+  <div id="nav">
+    <van-nav-bar :fixed="true" :title="$route.meta.title" left-text="主页" left-arrow @click-left="onClickLeft" />
   </div>
+  <router-view />
 </template>
-<style lang="stylus" scoped>
+<script>
+export default {
+  methods: {
+    onClickLeft () {
+      this.$router.push('/home')
+    }
+  }
+}
+</script>
+
+<style lang="stylus">
 #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  font-size: 24px;
-  display flex;
-  flex-direction: column;
+  padding-top 46px
 }
 </style>
