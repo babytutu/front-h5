@@ -1,5 +1,5 @@
 <template>
-  <iframe :src="$route.params.url" frameborder="0" width="100%" height="100%"></iframe>
+  <iframe :src="$route.params.url" frameborder="0" width="100%" height="100%" />
 </template>
 <script>
 export default {

@@ -18,6 +18,9 @@ try {
   console.warn('Getting revision FAILED. Maybe this is not a git project.')
 }
 module.exports = {
+  devServer: {
+    port: 9999,
+  },
   chainWebpack: config => {
     config
       .plugin('html')
