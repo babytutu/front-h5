@@ -4,18 +4,28 @@
     "list": [
       {
         "title": "常见问题",
-        "router": "list",
-        "label": "面试问题"
+        "to": "/qa",
+        "label": "前端常见问题"
       },
       {
-        "title": "blog",
-        "router": "/url/https%3A%2F%2Fbabytutu.github.io/blog",
+        "title": "列表",
+        "to": "/list",
+        "label": "列表加载示例"
+      },
+      {
+        "title": "城市列表",
+        "to": "/city",
+        "label": "全国城市列表"
+      },
+      {
+        "title": "Blog",
+        "to": "/url/https%3A%2F%2Fbabytutu.github.io/Blog",
         "label": "学无止境"
       },
       {
         "title": "Vant",
-        "router": "/url/https%3A%2F%2Fyouzan.github.io%2Fvant%2Fmobile.html/Vant",
-        "label": "有赞vant组件库"
+        "to": "/url/https%3A%2F%2Fyouzan.github.io%2Fvant%2Fmobile.html/Vant",
+        "label": "vant组件库"
       }
     ]
   }

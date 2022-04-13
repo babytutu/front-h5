@@ -1,14 +1,14 @@
 <template>
-  <van-list>
-    <van-cell v-for="item in list" :key="item.router" :title="item.title" is-link :label="item.label" :to="item.router">
-      <template #right-icon v-if="item.arrow">
-        <van-icon :name="item.arrow" size="16" />
-      </template>
-    </van-cell>
-  </van-list>
+  <groupModel title="Home" :list="list" />
 </template>
 <script>
+import groupModel from '@/components/group.vue'
+
 export default {
+  name: 'HomeView',
+  components: {
+    groupModel
+  },
   data () {
     return {
       list: []

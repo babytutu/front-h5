@@ -1,3 +1,5 @@
+const { defineConfig } = require('@vue/cli-service')
+
 const exec = require('child_process').execSync
 const path = require('path')
 
@@ -17,7 +19,8 @@ try {
   /* eslint-disable no-console */
   console.warn('Getting revision FAILED. Maybe this is not a git project.')
 }
-module.exports = {
+module.exports = defineConfig({
+  transpileDependencies: true,
   devServer: {
     port: 9999,
   },
@@ -37,4 +40,4 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? '/front-h5/'
     : '/',
-}
+})

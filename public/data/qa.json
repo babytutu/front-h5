@@ -9,12 +9,12 @@
           {
             "id": 1,
             "title": "rem，px，em的区别",
-            "content": "px固定尺寸，em当前节点的字号，rem相对根元素字号"
+            "label": "px固定尺寸，em当前节点的字号，rem相对根元素字号"
           },
           {
             "id": 2,
             "title": "预处理器，scss，less，stylus",
-            "content": "嵌套使用，变量"
+            "label": "嵌套使用，变量"
           }
         ]
       },
@@ -25,22 +25,22 @@
           {
             "id": 1,
             "title": "前端性能优化有哪些，结合实际项目",
-            "content": "前端缓存，压缩图片，合并接口，图片懒加载，内存泄漏"
+            "label": "前端缓存，压缩图片，合并接口，图片懒加载，内存泄漏"
           },
           {
             "id": 2,
             "title": "函数节流和函数防抖",
-            "content": "防止函数多次调用，函数防抖：多次合并一次，函数节流：限制执行条件"
+            "label": "防止函数多次调用，函数防抖：多次合并一次，函数节流：限制执行条件"
           },
           {
             "id": 3,
             "title": "对重排和重绘的理解",
-            "content": "重排：位置大小变更，重绘：背景色、文字颜色、边框颜色"
+            "label": "重排：位置大小变更，重绘：背景色、文字颜色、边框颜色"
           },
           {
             "id": 4,
             "title": "如何理解html语义化",
-            "content": "增强代码可读性，标题用h，列表用ul，段落p，按钮button"
+            "label": "增强代码可读性，标题用h，列表用ul，段落p，按钮button"
           }
         ]
       },
@@ -51,17 +51,17 @@
           {
             "id": 1,
             "title": "webpack用到哪些配置",
-            "content": "模块异步加载，图片压缩，兼容性babel-polyfill"
+            "label": "模块异步加载，图片压缩，兼容性babel-polyfill"
           },
           {
             "id": 2,
             "title": "浏览器兼容",
-            "content": "webpack，postcss"
+            "label": "webpack，postcss"
           },
           {
             "id": 3,
             "title": "npm，依赖包版本，依赖方式",
-            "content": "devDependencies,dependencies, ^, ~ 代表的含义"
+            "label": "devDependencies,dependencies, ^, ~ 代表的含义"
           }
         ]
       },
@@ -72,12 +72,12 @@
           {
             "id": 1,
             "title": "localStorage和sessionStorage，vuex的区别",
-            "content": "localstorage(本地存储，不删永存)，sessionStorage（会话缓存，关浏览器删除）限制5m；vuex存储在内存"
+            "label": "localstorage(本地存储，不删永存)，sessionStorage（会话缓存，关浏览器删除）限制5m；vuex存储在内存"
           },
           {
             "id": 2,
             "title": "localStorage存储数据格式是什么",
-            "content": "字符串，对象和数组用JSON.stringify"
+            "label": "字符串，对象和数组用JSON.stringify"
           }
         ]
       },
@@ -88,17 +88,17 @@
           {
             "id": 1,
             "title": "let与var的区别",
-            "content": "变量提升，重复定义，作用域"
+            "label": "变量提升，重复定义，作用域"
           },
           {
             "id": 2,
             "title": "const和let的区别，可改const定义对象某个属性",
-            "content": "常量，可以改"
+            "label": "常量，可以改"
           },
           {
             "id": 3,
             "title": "promise机制",
-            "content": "resolve和reject，catch"
+            "label": "resolve和reject，catch"
           }
         ]
       },
@@ -109,27 +109,27 @@
           {
             "id": 1,
             "title": "HTTP请求头，响应头里面有哪些",
-            "content": "缓存，数据类型，来源"
+            "label": "缓存，数据类型，来源"
           },
           {
             "id": 2,
             "title": "常见的请求方式",
-            "content": "简单请求（Content-type只能取：application/x-www-form-urlencoded、multipart/form-data、text/plain）post，get，options（非简单请求是对那种对服务器有特殊要求的请求，比如请求方式是PUT或者DELETE，或者Content-Type字段类型是application/json）"
+            "label": "简单请求（Content-type只能取：application/x-www-form-urlencoded、multipart/form-data、text/plain）post，get，options（非简单请求是对那种对服务器有特殊要求的请求，比如请求方式是PUT或者DELETE，或者Content-Type字段类型是application/json）"
           },
           {
             "id": 3,
             "title": "有没有抓过包",
-            "content": "Fiddler，Charles"
+            "label": "Fiddler，Charles"
           },
           {
             "id": 4,
             "title": "常见的http状态码",
-            "content": "200（成功）30x（重定向），404（资源不存在），415（请求类型不对），401（无权限），403（禁止访问），502（服务器错误），503（web异常）"
+            "label": "200（成功）30x（重定向），404（资源不存在），415（请求类型不对），401（无权限），403（禁止访问），502（服务器错误），503（web异常）"
           },
           {
             "id": 5,
             "title": "如何解决跨域问题",
-            "content": "同源（ip，端口），nginx代理"
+            "label": "同源（ip，端口），nginx代理"
           }
         ]
       },
@@ -140,17 +140,17 @@
           {
             "id": 1,
             "title": "v-for循环key的作用，可以用index么？",
-            "content": "高效的更新虚拟DOM，不能用index，无法正常更新列表数据"
+            "label": "高效的更新虚拟DOM，不能用index，无法正常更新列表数据"
           },
           {
             "id": 2,
             "title": "跨组件数据通讯",
-            "content": "事件分发，on，emit，vuex"
+            "label": "事件分发，on，emit，vuex"
           },
           {
             "id": 3,
             "title": "路由钩子beforeRouteEnter",
-            "content": "没有this，可以通过next回调拿到"
+            "label": "没有this，可以通过next回调拿到"
           }
         ]
       },
@@ -161,17 +161,17 @@
           {
             "id": 1,
             "title": "git,svn",
-            "content": "分布式管理"
+            "label": "分布式管理"
           },
           {
             "id": 2,
             "title": "协同开发需要注意什么",
-            "content": "代码规范，接口定义，沟通"
+            "label": "代码规范，接口定义，沟通"
           },
           {
             "id": 3,
             "title": "代码规范",
-            "content": "eslint，commit"
+            "label": "eslint，commit"
           }
         ]
       },
@@ -182,17 +182,17 @@
           {
             "id": 1,
             "title": "如何学前端的",
-            "content": "看书，写demo，博客"
+            "label": "看书，写demo，博客"
           },
           {
             "id": 2,
             "title": "职业规划，方向",
-            "content": "移动端，web端，小程序，app"
+            "label": "移动端，web端，小程序，app"
           },
           {
             "id": 3,
             "title": "项目中遇到过什么难点？如何解决的？",
-            "content": ""
+            "label": ""
           }
         ]
       }

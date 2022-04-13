@@ -1,6 +1,6 @@
 # 前端集中营
 
-基于[Vue CLI 4](https://cli.vuejs.org/)开发
+基于[Vue CLI 5](https://cli.vuejs.org/)开发
 
 升级使用vue3版本，搭配vant组件库，搭配GitHub Actions自动部署最新代码
 
