@@ -5,12 +5,8 @@
 export default {
   name: 'iframePage',
   beforeRouteEnter (to, from, next) {
-    const {
-      params: {
-        title
-      }
-    } = to
-    to.meta.title = title
+    to.meta.title = to.params.title
+    document.title = to.params.title
     next()
   },
 }

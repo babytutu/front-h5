@@ -1,24 +1,17 @@
 <template>
-<van-index-bar :index-list="indexList">
-  <template v-for="i in list" :key="i.id">
-    <van-index-anchor :index="i.title" />
-    <groupModel :title="i.title" :list="i.childs">
-      <template v-slot="{ data }">
-        <van-cell :title="data.title" is-link :to="`/weather/${data.value}`">
-        </van-cell>
-      </template>
-    </groupModel>
-  </template>
-</van-index-bar>
+  <groupModel v-for="i in list" :key="i.id" :title="i.title" :list="i.childs">
+    <template v-slot="{ data }">
+      <van-cell :title="data.title" is-link value="天气查询" :to="`/weather/${data.value}`">
+      </van-cell>
+    </template>
+  </groupModel>
 </template>
 <script>
-import { IndexBar, IndexAnchor, Cell, Toast } from 'vant'
+import { Cell, Toast } from 'vant'
 import groupModel from '@/components/group.vue'
 export default {
   name: 'weatherView',
   components: {
-    [IndexBar.name]: IndexBar,
-    [IndexAnchor.name]: IndexAnchor,
     [Cell.name]: Cell,
     groupModel,
   },
@@ -44,8 +37,3 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
->>> .van-index-bar__index {
-  line-height: 1.5
-}
-</style>

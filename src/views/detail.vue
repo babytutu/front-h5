@@ -1,5 +1,5 @@
 <template>
-  <groupModel title="Detail" :list="list" />
+  <groupModel title="详情" :list="list" />
   <van-divider />
   <van-button block to="/list">返回</van-button>
 </template>
@@ -17,11 +17,11 @@ export default {
     list () {
       return [
         {
-          title: 'Page',
+          title: '页码',
           value: this.$route.params.page
         },
         {
-          title: 'Index',
+          title: '序号',
           value: this.$route.params.index
         },
       ]

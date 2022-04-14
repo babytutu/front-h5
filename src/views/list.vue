@@ -39,8 +39,8 @@ export default {
       if (page < 5) {
         for (let i = 1; i < 21; i++) {
           arr.push({
-            title: `Index ${i}`,
-            value: `Page ${page}`,
+            title: `序号 ${i}`,
+            value: `页码 ${page}`,
             id: i + '' + page,
             link: true,
             to: `/detail/${page}/${i}`
