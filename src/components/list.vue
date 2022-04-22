@@ -15,7 +15,6 @@
   </van-pull-refresh>
 </template>
 <script>
-import { PullRefresh, List, Cell } from 'vant'
 export default {
   name: 'listModel',
   data () {
@@ -26,11 +25,6 @@ export default {
       list: [],
       page: 1
     }
-  },
-  components: {
-    [PullRefresh.name]: PullRefresh,
-    [Cell.name]: Cell,
-    [List.name]: List
   },
   methods: {
     /**

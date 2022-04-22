@@ -7,12 +7,10 @@
   </groupModel>
 </template>
 <script>
-import { Cell, Toast } from 'vant'
 import groupModel from '@/components/group.vue'
 export default {
   name: 'weatherView',
   components: {
-    [Cell.name]: Cell,
     groupModel,
   },
   data () {
@@ -22,7 +20,7 @@ export default {
     }
   },
   created () {
-    Toast.loading({
+    this.$toast.loading({
       duration: 0,
       message: '加载中...',
       forbidClick: true,
@@ -30,9 +28,9 @@ export default {
     this.$axios.get(this.$apis.weather.city).then(res => {
       this.list = res.list
       this.indexList = res.list.map(i => i.title)
-      Toast.clear()
+      this.$toast.clear()
     }).catch(() => {
-      Toast.clear()
+      this.$toast.clear()
     })
   }
 }

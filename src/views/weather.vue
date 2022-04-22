@@ -14,16 +14,12 @@
   <van-button block to="/city">返回</van-button>
 </template>
 <script>
-import { Divider, Button, Cell, Toast } from 'vant'
 import { getWeather } from '@/plugins/amap'
 import groupModel from '@/components/group.vue'
 
 export default {
   name: 'weatherView',
   components: {
-    [Cell.name]: Cell,
-    [Divider.name]: Divider,
-    [Button.name]: Button,
     groupModel
   },
   data () {
@@ -33,7 +29,7 @@ export default {
     }
   },
   created () {
-    Toast.loading({
+    this.$toast.loading({
       duration: 0,
       message: '加载中...',
       forbidClick: true,
@@ -45,9 +41,9 @@ export default {
         ]
       } = res
       this.info = info
-      Toast.clear()
+      this.$toast.clear()
     }).catch(() => {
-      Toast.clear()
+      this.$toast.clear()
     })
   }
 }

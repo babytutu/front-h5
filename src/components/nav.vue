@@ -9,13 +9,8 @@
   </van-nav-bar>
 </template>
 <script>
-import { NavBar, Icon } from 'vant'
 export default {
   name: 'navModel',
-  components: {
-    [NavBar.name]: NavBar,
-    [Icon.name]: Icon
-  },
   methods: {
     onClick (path) {
       this.$router.push(path)

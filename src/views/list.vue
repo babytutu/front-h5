@@ -6,7 +6,6 @@
   </listWarper>
 </template>
 <script>
-import { Cell } from 'vant'
 import listWarper from '@/components/list.vue'
 export default {
   name: 'listView',
@@ -18,7 +17,6 @@ export default {
   },
   components: {
     listWarper,
-    [Cell.name]: Cell,
   },
   methods: {
     /**

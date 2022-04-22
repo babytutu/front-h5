@@ -9,7 +9,6 @@
   </van-cell-group>
 </template>
 <script>
-import { Cell, CellGroup } from 'vant'
 export default {
   name: 'groupModel',
   props: {
@@ -19,10 +18,6 @@ export default {
       type: String,
       default: 'id',
     },
-  },
-  components: {
-    [Cell.name]: Cell,
-    [CellGroup.name]: CellGroup,
   },
 }
 </script>

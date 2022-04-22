@@ -2,8 +2,19 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { _axios } from './plugins/axios'
+import { Divider, Button, Cell, CellGroup, Toast, PullRefresh, List, NavBar, Icon } from 'vant'
 
 const app = createApp(App)
+
+// 全局注册
+app.use(Divider)
+app.use(Button)
+app.use(Cell).use(CellGroup)
+app.use(Toast)
+app.use(PullRefresh)
+app.use(List)
+app.use(NavBar)
+app.use(Icon)
 
 app.use(router).mount('#app')
 
