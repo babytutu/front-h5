@@ -6,32 +6,31 @@
     </template>
   </groupModel>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import groupModel from '@/components/group.vue'
-export default {
+export default defineComponent({
   name: 'weatherView',
   components: {
     groupModel,
   },
-  data () {
+  data() {
     return {
-      indexList: [],
-      list: [],
+      list: [] as any[],
     }
   },
-  created () {
+  created() {
     this.$toast.loading({
       duration: 0,
       message: '加载中...',
       forbidClick: true,
     })
-    this.$axios.get(this.$apis.weather.city).then(res => {
+    this.$axios.get(this.$apis.weather.city).then((res: any) => {
       this.list = res.list
-      this.indexList = res.list.map(i => i.title)
       this.$toast.clear()
     }).catch(() => {
       this.$toast.clear()
     })
   }
-}
+})
 </script>

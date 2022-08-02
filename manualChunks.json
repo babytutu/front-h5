@@ -1,0 +1,17 @@
+{
+  "api": [
+    "./src/views/city.vue",
+    "./src/views/weather.vue"
+  ],
+  "home": [
+    "./src/views/home.vue"
+  ],
+  "tool": [
+    "./src/views/list.vue",
+    "./src/views/detail.vue",
+    "./src/views/iframe.vue"
+  ],
+  "other": [
+    "./src/views/qa.vue"
+  ]
+}

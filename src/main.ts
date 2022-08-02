@@ -18,9 +18,11 @@ app.use(Icon)
 
 app.use(router).mount('#app')
 
+const global = window as any
+
 router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
-    document.title = to.meta.title
+    global.document.title = to.meta.title
   }
   next()
 })

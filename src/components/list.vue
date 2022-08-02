@@ -14,15 +14,18 @@
     </van-list>
   </van-pull-refresh>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue"
+export default defineComponent({
   name: 'listModel',
+  emits: ['getData'],
+  expose: ['renderList'],
   data () {
     return {
       loading: false,
       finished: false,
       refreshing: false,
-      list: [],
+      list: [] as Array<any>,
       page: 1
     }
   },
@@ -32,7 +35,7 @@ export default {
      * @param {Array} data 数据
      * @param {Boolean} finished 是否加载完成
      */
-    renderList (data, finished) {
+    renderList (data: Array<any>, finished: boolean) {
       this.list = this.list.concat(data)
       this.finished = finished
       this.refreshing = false
@@ -61,5 +64,5 @@ export default {
       this.onLoad()
     }
   }
-}
+})
 </script>

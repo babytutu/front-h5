@@ -8,16 +8,23 @@
     </template>
   </van-cell-group>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+
+type List = Array<any>
+
+export default defineComponent ({
   name: 'groupModel',
   props: {
     title: String,
-    list: Array,
+    list: {
+      type: Array as PropType<List>
+    },
     id: {
       type: String,
       default: 'id',
     },
   },
-}
+})
 </script>

@@ -13,18 +13,23 @@
   <van-divider />
   <van-button block to="/city">返回</van-button>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { getWeather } from '@/plugins/amap'
 import groupModel from '@/components/group.vue'
 
-export default {
+export default defineComponent({
   name: 'weatherView',
   components: {
     groupModel
   },
   data () {
     return {
-      info: {},
+      info: {
+        casts: [] as Array<any>,
+        province: '',
+        city: ''
+      },
       weeks: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     }
   },
@@ -34,7 +39,7 @@ export default {
       message: '加载中...',
       forbidClick: true,
     })
-    getWeather(this.$route.params.adcode).then(res => {
+    getWeather(this.$route.params.adcode as string).then((res: any) => {
       const {
         forecasts: [
           info,
@@ -46,5 +51,5 @@ export default {
       this.$toast.clear()
     })
   }
-}
+})
 </script>

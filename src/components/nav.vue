@@ -1,5 +1,5 @@
 <template>
-  <van-nav-bar :title="$route.meta.title" @click-left="$router.go(-1)" @click-right="$router.push('/')">
+  <van-nav-bar :title="title" @click-left="$router.go(-1)" @click-right="$router.push('/')">
     <template #left v-if="$route.path !== '/'">
       <van-icon name="arrow-left" color="#333" size="20" />
     </template>
@@ -8,13 +8,15 @@
     </template>
   </van-nav-bar>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'navModel',
-  methods: {
-    onClick (path) {
-      this.$router.push(path)
+  computed: {
+    title (): string {
+      return this.$route.meta.title + ''
     }
-  }
-}
+  },
+})
 </script>

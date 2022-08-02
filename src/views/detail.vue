@@ -3,9 +3,11 @@
   <van-divider />
   <van-button block to="/list">返回</van-button>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
 import groupModel from '@/components/group.vue'
-export default {
+export default defineComponent({
   name: 'detailView',
   components: {
     groupModel,
@@ -24,5 +26,5 @@ export default {
       ]
     }
   }
-}
+})
 </script>

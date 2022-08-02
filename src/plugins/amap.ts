@@ -19,7 +19,7 @@ const batchUrl = `${host}/v3/batch?key=${key}`
  * @param {string} url restapi地址
  * @param {string} err 错误信息
  */
-function getRestapi (url, err) {
+function getRestapi (url: string, err: any) {
   return new Promise((resolve, reject) => {
     axios.get(url).then((res) => {
       if (res.data.infocode === '10000') {
@@ -35,9 +35,9 @@ function getRestapi (url, err) {
  * 批量查询数据接口@see {@link https://lbs.amap.com/api/webservice/guide/api/batchrequest}
  * @param {object} data 批量查询
  */
-function batchRestapi (data) {
+function batchRestapi (data: object) {
   return new Promise((resolve, reject) => {
-    axios.post(batchUrl, data).then((res) => {
+    axios.post(batchUrl, data).then((res: any) => {
       if (res.length > 0) {
         resolve(res)
       } else {
@@ -66,7 +66,7 @@ export function getLoaction () {
  * 获取天气预报@see {@link https://lbs.amap.com/api/webservice/guide/api/weatherinfo}
  * @param {string} city 城市
  */
-export function getWeather (city) {
+export function getWeather (city: string) {
   return getRestapi(`${weatherUrl}&city=${city}`, '获取天气信息失败')
 }
 
@@ -92,7 +92,7 @@ export function formatAdcode (adcode = '', type = 'province') {
  * @param {number} page 当前页数
  * @param {number} offset 每页条数
  */
-export function searchPlace (keywords, city, page = 1, offset = 20) {
+export function searchPlace (keywords: string, city: number|string, page = 1, offset = 20) {
   return getRestapi(`${searchPlaceUrl}&city=${city}&keywords=${keywords}&page=${page}&offset=${offset}`, '暂无结果')
 }
 
@@ -101,7 +101,7 @@ export function searchPlace (keywords, city, page = 1, offset = 20) {
  * @param {array} arr 城市列表
  */
 export function getBatchWeather (arr = []) {
-  const ops = []
+  const ops: Array<object> = []
   arr.forEach(i => {
     ops.push({
       url: `/v3/weather/weatherInfo?key=${key}&extensions=base&city=${i}`

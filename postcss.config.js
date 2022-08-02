@@ -1,10 +1,10 @@
 /**
  * @see https://youzan.github.io/vant/#/zh-CN/advanced-usage
- * @see https://github.com/evrone/postcss-px-to-viewport/blob/master/README_CN.md
+ * @see https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin
  */
  module.exports = {
   plugins: {
-    'postcss-px-to-viewport': {
+    'postcss-px-to-viewport-8-plugin': {
       viewportWidth: 375,
       replace: false,
     },

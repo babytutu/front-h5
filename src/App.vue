@@ -5,13 +5,12 @@
   </div>
   <div class="van-safe-area-bottom"></div>
 </template>
-<script>
-import { watch } from 'vue'
-import { usePageVisibility } from '@vant/use'
-import { Notify } from 'vant'
 
-import navModel from '@/components/nav.vue'
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+import navModel from './components/nav.vue'
+
+export default defineComponent({
   components: {
     navModel
   },
@@ -21,20 +20,7 @@ export default {
       showNav: window.navigator.userAgent.toLowerCase().indexOf('micromessenger') <= -1,
     }
   },
-  created () {
-    watch(usePageVisibility(), (value) => {
-      if (value === 'visible') {
-        Notify({
-          message: '欢迎回来',
-          color: '#999',
-          background: '#eee',
-          position: 'bottom',
-          duration: 1000
-        })
-      }
-    })
-  }
-}
+})
 </script>
 
 <style lang="stylus">

@@ -5,9 +5,10 @@
     </template>
   </listWarper>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import listWarper from '@/components/list.vue'
-export default {
+export default defineComponent({
   name: 'listView',
   data () {
     return {
@@ -23,16 +24,17 @@ export default {
      * 分页获取数据
      * @param {Number} page 当前页数
      */
-    getData (page) {
+    getData (page: number) {
       setTimeout(() => {
         const list = this.mockData(page)
-        this.$refs.list && this.$refs.list.renderList(list, list.length < this.size)
+        const listDom: any = this.$refs.list
+        listDom && listDom.renderList(list, list.length < this.size)
       }, 500)
     },
     /**
      * 模拟接口数据
      */
-    mockData (page) {
+    mockData (page: number) {
       const arr = []
       if (page < 5) {
         for (let i = 1; i < 21; i++) {
@@ -48,5 +50,5 @@ export default {
       return arr
     }
   }
-}
+})
 </script>
