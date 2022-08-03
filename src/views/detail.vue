@@ -12,11 +12,11 @@ const route = useRoute()
 const list = [
   {
     title: '页码',
-    value: route.params.page
+    value: Number(route.params.page)
   },
   {
     title: '序号',
-    value: route.params.index
+    value: Number(route.params.index)
   },
 ]
 </script>

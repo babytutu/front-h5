@@ -3,7 +3,7 @@
     <template v-slot="{ data: {
       week, date, dayweather, nightweather, nighttemp, daytemp
     } }">
-      <van-cell :title="date" :value="weeks[week - 1]">
+      <van-cell :title="date" :value="weeks[week ? week - 1 : 0]">
         <template #label>
           <p>{{dayweather + '~' + nightweather + ' (' +nighttemp + '℃~' + daytemp + '℃)'}}</p>
         </template>

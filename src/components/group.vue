@@ -9,9 +9,24 @@
   </van-cell-group>
 </template>
 <script setup lang="ts">
+
+interface Item {
+  title: string,
+  label?: string,
+  value: string|number,
+  isLink?: boolean,
+  to?: any,
+  week?: 1,
+  date?: string,
+  dayweather?: string,
+  nightweather?: string,
+  nighttemp?: string,
+  daytemp?: string,
+}
+
 defineProps<{
   title: string,
-  list: Array<any>,
+  list: Array<Item>,
   id?: 'id',
 }>()
 </script>
