@@ -8,15 +8,9 @@
     </template>
   </van-nav-bar>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'navModel',
-  computed: {
-    title (): string {
-      return this.$route.meta.title + ''
-    }
-  },
-})
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const title = computed(() => route.meta.title + '')
 </script>

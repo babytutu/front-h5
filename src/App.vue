@@ -6,21 +6,9 @@
   <div class="van-safe-area-bottom"></div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import navModel from './components/nav.vue'
-
-export default defineComponent({
-  components: {
-    navModel
-  },
-  data () {
-    return {
-      // 微信不展示头部
-      showNav: window.navigator.userAgent.toLowerCase().indexOf('micromessenger') <= -1,
-    }
-  },
-})
+const showNav = window.navigator.userAgent.toLowerCase().indexOf('micromessenger') <= -1
 </script>
 
 <style lang="stylus">

@@ -3,7 +3,6 @@
   "include": ["vite.config.*", "vitest.config.*", "cypress.config.*", "manualChunks.json"],
   "compilerOptions": {
     "composite": true,
-    "types": ["node"],
-    "module": "ES2020"
+    "types": ["node"]
   }
 }

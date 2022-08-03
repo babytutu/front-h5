@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import legacy from '@vitejs/plugin-legacy'
 
 import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
@@ -27,6 +28,13 @@ export default defineConfig({
   base: './',
   plugins: [
     vue(),
+    vueJsx(),
+    Components({
+      resolvers: [VantResolver()],
+    }),
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    }),
     createHtmlPlugin({
       minify: true,
       /**
@@ -39,14 +47,10 @@ export default defineConfig({
        */
       inject: {
         data: {
-          title: 'FRONT-H5',
+          title: '前端集中营',
           version,
         },
       }
-    }),
-    vueJsx(),
-    Components({
-      resolvers: [VantResolver()],
     }),
   ],
   resolve: {
@@ -55,7 +59,7 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3002,
+    port: 9090,
   },
   build: {
     rollupOptions: {

@@ -1,5 +1,5 @@
 <template>
-  <groupModel v-if="info.casts && info.casts.length" :title="info.province + info.city" :list="info.casts">
+  <groupModel v-if="weatherInfo.casts && weatherInfo.casts.length" :title="weatherInfo.province + weatherInfo.city" :list="weatherInfo.casts">
     <template v-slot="{ data: {
       week, date, dayweather, nightweather, nighttemp, daytemp
     } }">
@@ -13,43 +13,39 @@
   <van-divider />
   <van-button block to="/city">返回</van-button>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { Toast } from 'vant'
 import { getWeather } from '@/plugins/amap'
 import groupModel from '@/components/group.vue'
 
-export default defineComponent({
-  name: 'weatherView',
-  components: {
-    groupModel
-  },
-  data () {
-    return {
-      info: {
-        casts: [] as Array<any>,
-        province: '',
-        city: ''
-      },
-      weeks: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-    }
-  },
-  created () {
-    this.$toast.loading({
-      duration: 0,
-      message: '加载中...',
-      forbidClick: true,
-    })
-    getWeather(this.$route.params.adcode as string).then((res: any) => {
-      const {
-        forecasts: [
-          info,
-        ]
-      } = res
-      this.info = info
-      this.$toast.clear()
-    }).catch(() => {
-      this.$toast.clear()
-    })
-  }
+const route = useRoute()
+
+const weeks: Array<string> = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+
+const weatherInfo = ref({
+  casts: [],
+  province: '',
+  city: ''
+})
+
+onMounted(() => {
+  Toast.loading({
+    duration: 0,
+    message: '加载中...',
+    forbidClick: true,
+  })
+  getWeather(route.params.adcode as string).then((res: any) => {
+    const {
+      forecasts: [
+        info,
+      ]
+    } = res
+    weatherInfo.value = info
+    Toast.clear()
+  }).catch(() => {
+    Toast.clear()
+  })
 })
 </script>

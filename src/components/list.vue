@@ -14,55 +14,51 @@
     </van-list>
   </van-pull-refresh>
 </template>
-<script lang="ts">
-import { defineComponent } from "vue"
-export default defineComponent({
-  name: 'listModel',
-  emits: ['getData'],
-  expose: ['renderList'],
-  data () {
-    return {
-      loading: false,
-      finished: false,
-      refreshing: false,
-      list: [] as Array<any>,
-      page: 1
-    }
-  },
-  methods: {
-    /**
-     * 渲染列表
-     * @param {Array} data 数据
-     * @param {Boolean} finished 是否加载完成
-     */
-    renderList (data: Array<any>, finished: boolean) {
-      this.list = this.list.concat(data)
-      this.finished = finished
-      this.refreshing = false
-      this.loading = false
-      if (!this.finished) {
-        this.page++
-      }
-    },
-    /**
-     * 加载列表
-     */
-    onLoad () {
-      this.loading = true
-      if (this.refreshing) {
-        this.list = []
-      }
-      this.$emit('getData', this.page)
-    },
-    /**
-     * 刷新
-     */
-    onRefresh () {
-      this.refreshing = true
-      this.list = []
-      this.page = 1
-      this.onLoad()
-    }
+<script setup lang="ts">
+import { ref } from 'vue'
+const emit = defineEmits(['getData'])
+
+let loading = ref(false)
+let finished = ref(false)
+let refreshing = ref(false)
+let list = ref([] as Array<any>)
+let page = ref(1)
+
+/**
+ * 渲染列表
+ * @param {Array} data 数据
+ * @param {Boolean} finish 是否加载完成
+ */
+function renderList(data: Array<any>, finish: boolean) {
+  list.value = list.value.concat(data)
+  finished.value = finish
+  refreshing.value = false
+  loading.value = false
+  if (!finish) {
+    page.value++
   }
+}
+/**
+ * 加载列表
+ */
+function onLoad () {
+  loading.value = true
+  if (refreshing.value) {
+    list.value = []
+  }
+  emit('getData', page.value)
+}
+/**
+ * 刷新
+ */
+function onRefresh () {
+  refreshing.value = true
+  list.value = []
+  page.value = 1
+  onLoad()
+}
+
+defineExpose({
+  renderList
 })
 </script>

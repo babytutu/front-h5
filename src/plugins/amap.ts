@@ -7,7 +7,8 @@ const host = '//restapi.amap.com'
 const districtUrl = `${host}/v3/config/district?key=${key}&extensions=base`
 // 获取ip定位
 const locationUrl = `${host}/v3/ip?key=${key}`
-// 天气预报查询
+// 天气预报查询//restapi.amap.com/v3/weather/weatherInfo?key=您的key&city=110101
+
 const weatherUrl = `${host}/v3/weather/weatherInfo?key=${key}&extensions=all`
 // 搜索位置
 const searchPlaceUrl = `${host}/v3/place/text?key=${key}&extensions=base`

@@ -6,31 +6,26 @@
     </template>
   </groupModel>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { Toast } from 'vant'
+import { _axios } from '@/plugins/axios'
+import { apis } from '@/plugins/apis'
 import groupModel from '@/components/group.vue'
-export default defineComponent({
-  name: 'weatherView',
-  components: {
-    groupModel,
-  },
-  data() {
-    return {
-      list: [] as any[],
-    }
-  },
-  created() {
-    this.$toast.loading({
-      duration: 0,
-      message: '加载中...',
-      forbidClick: true,
-    })
-    this.$axios.get(this.$apis.weather.city).then((res: any) => {
-      this.list = res.list
-      this.$toast.clear()
-    }).catch(() => {
-      this.$toast.clear()
-    })
-  }
+
+let list = ref([] as Array<any>)
+
+onMounted(() => {
+  Toast.loading({
+    duration: 0,
+    message: '加载中...',
+    forbidClick: true,
+  })
+  _axios.get(apis.weather.city).then((res: any) => {
+    list.value = res.list
+    Toast.clear()
+  }).catch(() => {
+    Toast.clear()
+  })
 })
 </script>

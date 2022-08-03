@@ -5,7 +5,6 @@ import { Toast } from 'vant'
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.common['Content-Type'] = 'application/json;charset=utf-8'
-axios.defaults.headers.common['permissions-policy'] = 'interest-cohort=()'
 // axios.defaults.headers.common.Pragma = 'no-cache'
 // axios.defaults.headers.common['Cache-Control'] = 'no-cache'
 

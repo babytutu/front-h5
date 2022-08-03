@@ -55,6 +55,14 @@ const router = createRouter({
       component: () => import('@/views/weather.vue')
     },
     {
+      path: '/counter',
+      name: 'counter',
+      meta: {
+        title: '计数器',
+      },
+      component: () => import('@/views/counter.vue')
+    },
+    {
       path: '/url/:url/:title',
       name: 'url',
       meta: {

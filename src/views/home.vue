@@ -2,24 +2,20 @@
   <groupModel title="Home" :list="list" />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { _axios } from '@/plugins/axios'
+import { apis } from '@/plugins/apis'
 import groupModel from '@/components/group.vue'
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    groupModel
-  },
-  data () {
-    return {
-      list: []
-    }
-  },
-  created () {
-    this.$axios.get(this.$apis.list.list).then((res: any) => {
-      this.list = res.list
-    })
-  }
+interface res {
+  list: Array<any>
+}
+
+let list = ref([] as Array<any>)
+
+onMounted(async () => {
+  const res: res = await _axios.get(apis.list.list)
+  list.value = res.list
 })
 </script>

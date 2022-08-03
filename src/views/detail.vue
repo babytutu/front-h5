@@ -3,28 +3,20 @@
   <van-divider />
   <van-button block to="/list">返回</van-button>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
-
+<script setup lang="ts">
+import { useRoute } from 'vue-router'
 import groupModel from '@/components/group.vue'
-export default defineComponent({
-  name: 'detailView',
-  components: {
-    groupModel,
+
+const route = useRoute()
+
+const list = [
+  {
+    title: '页码',
+    value: route.params.page
   },
-  computed: {
-    list () {
-      return [
-        {
-          title: '页码',
-          value: this.$route.params.page
-        },
-        {
-          title: '序号',
-          value: this.$route.params.index
-        },
-      ]
-    }
-  }
-})
+  {
+    title: '序号',
+    value: route.params.index
+  },
+]
 </script>

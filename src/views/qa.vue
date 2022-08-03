@@ -1,23 +1,20 @@
 <template>
   <groupModel :title="i.title" :list="i.list" v-for="i in list" :key="i.id" />
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { _axios } from '@/plugins/axios'
+import { apis } from '@/plugins/apis'
 import groupModel from '@/components/group.vue'
-export default defineComponent({
-  name: 'qaView',
-  data () {
-    return {
-      list: [] as Array<any>
-    }
-  },
-  components: {
-    groupModel
-  },
-  created () {
-    this.$axios.get(this.$apis.list.qa).then((res: any) => {
-      this.list = res.data
-    })
-  }
+
+interface res {
+  data: Array<any>
+}
+
+const list = ref([] as Array<any>)
+
+onMounted(async () => {
+  const res: res = await _axios.get(apis.list.qa)
+  list.value = res.data
 })
 </script>
