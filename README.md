@@ -61,7 +61,7 @@ yarn lint
 ├── .eslintrc.cjs        // eslint配置，代码规范
 ├── .gitignore           // git忽略文件
 ├── .npmrc               // npm配置, 指向淘宝服务器
-├── components.d.ts      // vant组件自动生成文件
+├── components.d.ts      // 组件按需加载自动更新
 ├── env.d.ts             // vite配置文件
 │── index.html           // html模版
 ├── manualChunks.json    // 自定义打包配置

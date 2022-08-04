@@ -2,7 +2,7 @@
  * @see https://youzan.github.io/vant/#/zh-CN/advanced-usage
  * @see https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin
  */
- module.exports = {
+module.exports = {
   plugins: {
     'postcss-px-to-viewport-8-plugin': {
       viewportWidth: 375,

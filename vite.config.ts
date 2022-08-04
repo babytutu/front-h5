@@ -1,23 +1,26 @@
 import { fileURLToPath, URL } from 'node:url'
+import { execSync } from 'child_process'
 
 import { defineConfig } from 'vite'
+
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import legacy from '@vitejs/plugin-legacy'
+import eslint from 'vite-plugin-eslint'
 
+// 按需加载组件
 import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 
 import { createHtmlPlugin } from 'vite-plugin-html'
 
+// 分块打包配置
 import manualChunks from './manualChunks.json'
-
-const exec = require('child_process').execSync
 
 // 获取最后一次提交的commitID,处理异常报错
 let version
 try {
-  version = exec('git rev-parse --short HEAD').toString().replace(/\n/, '')
+  version = execSync('git rev-parse --short HEAD').toString().replace(/\n/, '')
 } catch (e) {
   /* eslint-disable no-console */
   console.warn('Getting revision FAILED. Maybe this is not a git project.')
@@ -27,13 +30,23 @@ try {
 export default defineConfig({
   base: './',
   plugins: [
-    vue(),
+    eslint(),
+    vue({
+      // 显式启用，响应性语法糖目前默认是关闭状态，需要你显式选择启用
+      reactivityTransform: true,
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('T-'),
+        },
+      },
+    }),
     vueJsx(),
     Components({
       resolvers: [VantResolver()],
+      dts: true,
     }),
     legacy({
-      targets: ['defaults', 'not IE 11']
+      targets: ['defaults', 'not IE 11'],
     }),
     createHtmlPlugin({
       minify: true,
@@ -50,13 +63,13 @@ export default defineConfig({
           title: '前端集中营',
           version,
         },
-      }
+      },
     }),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   server: {
     port: 9090,
@@ -65,7 +78,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks,
-      }
-    }
-  }
+      },
+    },
+  },
 })

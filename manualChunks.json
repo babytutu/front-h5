@@ -1,17 +1,18 @@
 {
   "api": [
-    "./src/views/city.vue",
-    "./src/views/weather.vue"
+    "./src/views/cityPage.vue",
+    "./src/views/weatherInfo.vue"
   ],
   "home": [
-    "./src/views/home.vue"
+    "./src/views/homePage.vue"
   ],
   "tool": [
-    "./src/views/list.vue",
-    "./src/views/detail.vue",
-    "./src/views/iframe.vue"
+    "./src/views/listPage.vue",
+    "./src/views/detailPage.vue",
+    "./src/views/iframePage.vue",
+    "./src/views/counterPage.vue"
   ],
   "other": [
-    "./src/views/qa.vue"
+    "./src/views/qaPage.vue"
   ]
 }

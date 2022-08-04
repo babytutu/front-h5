@@ -7,5 +7,5 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const src = computed(() => route.params.url as string)
+const src = computed<string>(() => route.params.url as string)
 </script>

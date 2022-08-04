@@ -14,13 +14,10 @@ const global = window as any
 
 router.beforeEach((to, from, next) => {
   const {
-    meta: {
-      title,
-    },
-    params: {
-      title: linkTitle
-    }
+    meta: { title },
+    params: { title: linkTitle },
   } = to
+  // 更新标题
   if (linkTitle || title) {
     global.document.title = linkTitle || title
     to.meta.title = linkTitle || title

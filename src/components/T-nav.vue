@@ -1,5 +1,9 @@
 <template>
-  <van-nav-bar :title="title" @click-left="$router.go(-1)" @click-right="$router.push('/')">
+  <van-nav-bar
+    :title="title"
+    @click-left="$router.go(-1)"
+    @click-right="$router.push('/')"
+  >
     <template #left v-if="$route.path !== '/'">
       <van-icon name="arrow-left" color="#333" size="20" />
     </template>
@@ -12,5 +16,5 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
-const title = computed(() => route.meta.title + '')
+const title = computed<string>(() => route.meta.title as string)
 </script>

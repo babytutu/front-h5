@@ -1,14 +1,14 @@
 <template>
-  <navModel v-if="showNav" />
+  <TNav v-if="showNav" />
   <div class="app-content">
-    <router-view/>
+    <router-view />
   </div>
   <div class="van-safe-area-bottom"></div>
 </template>
 
 <script setup lang="ts">
-import navModel from './components/nav.vue'
-const showNav = window.navigator.userAgent.toLowerCase().indexOf('micromessenger') <= -1
+const showNav =
+  window.navigator.userAgent.toLowerCase().indexOf('micromessenger') <= -1
 </script>
 
 <style lang="stylus">

@@ -8,7 +8,13 @@
     >
       <template v-for="item in list" :key="item.id">
         <slot :data="item">
-          <van-cell :title="item.title" :value="item.value" :label="item.label" :is-link="item.link" :to="item.to" />
+          <van-cell
+            :title="item.title"
+            :value="item.value"
+            :label="item.label"
+            :is-link="item.link"
+            :to="item.to"
+          />
         </slot>
       </template>
     </van-list>
@@ -18,11 +24,11 @@
 import { ref } from 'vue'
 const emit = defineEmits(['getData'])
 
-let loading = ref(false)
-let finished = ref(false)
-let refreshing = ref(false)
-let list = ref([] as Array<any>)
-let page = ref(1)
+const loading = ref<boolean>(false)
+const finished = ref<boolean>(false)
+const refreshing = ref<boolean>(false)
+const list = ref<Array<any>>([])
+const page = ref<number>(1)
 
 /**
  * 渲染列表
@@ -41,7 +47,7 @@ function renderList(data: Array<any>, finish: boolean) {
 /**
  * 加载列表
  */
-function onLoad () {
+function onLoad() {
   loading.value = true
   if (refreshing.value) {
     list.value = []
@@ -51,7 +57,7 @@ function onLoad () {
 /**
  * 刷新
  */
-function onRefresh () {
+function onRefresh() {
   refreshing.value = true
   list.value = []
   page.value = 1
@@ -59,6 +65,6 @@ function onRefresh () {
 }
 
 defineExpose({
-  renderList
+  renderList,
 })
 </script>
