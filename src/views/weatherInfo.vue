@@ -5,7 +5,7 @@
     :list="weatherInfo.casts"
   >
     <template
-      v-slot="{
+      #default="{
         data: { week, date, dayweather, nightweather, nighttemp, daytemp },
       }"
     >

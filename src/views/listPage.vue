@@ -1,6 +1,6 @@
 <template>
-  <TList @getData="getData" ref="list">
-    <template v-slot="item">
+  <TList ref="list" @getData="getData">
+    <template #default="item">
       <van-cell
         :title="item.data.title"
         :value="item.data.value"

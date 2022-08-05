@@ -4,10 +4,10 @@
     @click-left="$router.go(-1)"
     @click-right="$router.push('/')"
   >
-    <template #left v-if="$route.path !== '/'">
+    <template v-if="$route.path !== '/'" #left>
       <van-icon name="arrow-left" color="#333" size="20" />
     </template>
-    <template #right v-if="$route.path !== '/'">
+    <template v-if="$route.path !== '/'" #right>
       <van-icon name="wap-home-o" color="#333" size="20" />
     </template>
   </van-nav-bar>

@@ -1,6 +1,6 @@
 <template>
   <TGroup v-for="i in list" :key="i.id" :title="i.title" :list="i.childs">
-    <template v-slot="{ data }">
+    <template #default="{ data }">
       <van-cell
         :title="data.title"
         is-link

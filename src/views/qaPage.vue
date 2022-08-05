@@ -1,5 +1,5 @@
 <template>
-  <TGroup :title="i.title" :list="i.list" v-for="i in list" :key="i.id" />
+  <TGroup v-for="i in list" :key="i.id" :title="i.title" :list="i.list" />
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
