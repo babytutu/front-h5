@@ -2,11 +2,16 @@
   <TGroup v-for="i in list" :key="i.id" :title="i.title" :list="i.childs">
     <template #default="{ data }">
       <van-cell
-        :title="data.title"
         is-link
-        value="天气查询"
+        :title="data.title"
         :to="`/weather/${data.value}`"
       >
+        <template #value>
+          {{weatherInfo[data.value]?.weather + '(' + weatherInfo[data.value]?.temperature + ')'}}
+        </template>
+        <template #label>
+          {{weatherInfo[data.value]?.reporttime}}
+        </template>
       </van-cell>
     </template>
   </TGroup>
@@ -16,8 +21,10 @@ import { onMounted, ref } from 'vue'
 import { Toast } from 'vant'
 import { $http } from '@/plugins/axios'
 import { $apis } from '@/plugins/apis'
+import { getBatchWeather } from '@/plugins/amap'
 
 const list = ref<Array<any>>([])
+const weatherInfo = ref<any>({})
 
 onMounted(() => {
   Toast.loading({
@@ -30,7 +37,13 @@ onMounted(() => {
     .get($apis.weather.city)
     .then((res: any) => {
       list.value = res.list
-      Toast.clear()
+      const citys = res.list.map((i: any) => i.childs).flat().map((j: any) => j.value)
+      getBatchWeather(citys).then((res: any) => {
+        res.forEach((resp: any) => {
+          weatherInfo.value[resp.body.lives[0].adcode] = resp.body.lives[0]
+        })
+        Toast.clear()
+      })
     })
     .catch(() => {
       Toast.clear()

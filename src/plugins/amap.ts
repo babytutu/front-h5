@@ -39,8 +39,8 @@ function getRestapi(url: string, err: any) {
 function batchRestapi(data: object) {
   return new Promise((resolve, reject) => {
     axios.post(batchUrl, data).then((res: any) => {
-      if (res.length > 0) {
-        resolve(res)
+      if (res?.data?.length) {
+        resolve(res.data)
       } else {
         reject(new Error('信息获取失败'))
       }
@@ -112,12 +112,9 @@ export function searchPlace(
  * 批量查询城市看起实时天气
  * @param {array} arr 城市列表
  */
-export function getBatchWeather(arr = []) {
-  const ops: Array<object> = []
-  arr.forEach((i) => {
-    ops.push({
-      url: `/v3/weather/weatherInfo?key=${key}&extensions=base&city=${i}`,
-    })
-  })
+export function getBatchWeather(arr: Array<string>) {
+  const ops: Array<object> = arr.map((i: string) => ({
+    url: `/v3/weather/weatherInfo?key=${key}&extensions=base&city=${i}`,
+  }))
   return batchRestapi({ ops })
 }
