@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { Toast } from 'vant'
+import { showLoadingToast, closeToast } from 'vant'
 import { getWeather } from '@/plugins/amap'
 
 const route = useRoute()
@@ -61,7 +61,7 @@ const weatherInfo = ref<WeatherInfo>({
 })
 
 onMounted(() => {
-  Toast.loading({
+  showLoadingToast({
     duration: 0,
     message: '加载中...',
     forbidClick: true,
@@ -73,10 +73,10 @@ onMounted(() => {
         forecasts: [info],
       } = res
       weatherInfo.value = info
-      Toast.clear()
+      closeToast()
     })
     .catch(() => {
-      Toast.clear()
+      closeToast()
     })
 })
 </script>

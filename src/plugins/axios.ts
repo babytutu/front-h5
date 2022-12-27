@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Toast } from 'vant'
+import { showFailToast } from 'vant'
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
@@ -44,7 +44,7 @@ $http.interceptors.response.use(
     // 只处理接口正常且接口参数正常数据
     if (status !== 200 || (code !== 1 && infocode !== '10000')) {
       // 统一处理接口报错信息，弹出后端的错误信息
-      if (message) Toast.fail(message)
+      if (message) showFailToast(message)
       return Promise.reject(data)
     }
     return data || res

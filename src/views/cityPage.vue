@@ -18,7 +18,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { Toast } from 'vant'
+import { showLoadingToast, closeToast } from 'vant'
 import { $http } from '@/plugins/axios'
 import { $apis } from '@/plugins/apis'
 import { getBatchWeather } from '@/plugins/amap'
@@ -27,7 +27,7 @@ const list = ref<Array<any>>([])
 const weatherInfo = ref<any>({})
 
 onMounted(() => {
-  Toast.loading({
+  showLoadingToast({
     duration: 0,
     message: '加载中...',
     forbidClick: true,
@@ -42,11 +42,11 @@ onMounted(() => {
         res.forEach((resp: any) => {
           weatherInfo.value[resp.body.lives[0].adcode] = resp.body.lives[0]
         })
-        Toast.clear()
+        closeToast()
       })
     })
     .catch(() => {
-      Toast.clear()
+      closeToast()
     })
 })
 </script>
