@@ -5,7 +5,6 @@ import { defineConfig } from 'vite'
 
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import legacy from '@vitejs/plugin-legacy'
 import eslint from 'vite-plugin-eslint'
 
 // 按需加载组件
@@ -44,9 +43,6 @@ export default defineConfig({
     Components({
       resolvers: [VantResolver()],
       dts: true,
-    }),
-    legacy({
-      targets: ['defaults', 'not IE 11'],
     }),
     createHtmlPlugin({
       minify: true,
