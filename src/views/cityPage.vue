@@ -22,6 +22,7 @@ import { showLoadingToast, closeToast } from 'vant'
 import { $http } from '@/plugins/axios'
 import { $apis } from '@/plugins/apis'
 import { getBatchWeather } from '@/plugins/amap'
+import 'vant/es/toast/style'
 
 const list = ref<Array<any>>([])
 const weatherInfo = ref<any>({})

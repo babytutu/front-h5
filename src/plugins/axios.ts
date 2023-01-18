@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { showFailToast } from 'vant'
+import 'vant/es/toast/style'
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';

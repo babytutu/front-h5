@@ -35,6 +35,7 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { showLoadingToast, closeToast } from 'vant'
 import { getWeather } from '@/plugins/amap'
+import 'vant/es/toast/style'
 
 const route = useRoute()
 
