@@ -23,14 +23,19 @@
         "label": "热门城市列表"
       },
       {
+        "title": "MacApps",
+        "to": "/MacApps",
+        "label": "Mac软件"
+      },
+      {
         "title": "Blog",
         "to": "/url/https%3A%2F%2Fbabytutu.github.io/Blog",
         "label": "学无止境"
       },
       {
-        "title": "Vant@3",
+        "title": "Vant@4",
         "to": "/url/https%3A%2F%2Fyouzan.github.io%2Fvant%2Fmobile.html/Vant",
-        "label": "Vant3组件库"
+        "label": "Vant4组件库"
       }
     ]
   }

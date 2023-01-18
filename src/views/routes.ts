@@ -51,6 +51,14 @@ export const routes = [
     component: () => import('@/views/weatherInfo.vue'),
   },
   {
+    path: '/MacApps',
+    name: 'MacApps',
+    meta: {
+      title: 'MacApps',
+    },
+    component: () => import('@/views/MacApps.vue'),
+  },
+  {
     path: '/counter',
     name: 'counter',
     meta: {

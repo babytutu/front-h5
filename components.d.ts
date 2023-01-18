@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TGroup: typeof import('./src/components/T-group.vue')['default']
+    TItem: typeof import('./src/components/T-item.vue')['default']
     TList: typeof import('./src/components/T-list.vue')['default']
     TNav: typeof import('./src/components/T-nav.vue')['default']
     VanButton: typeof import('vant/es')['Button']
