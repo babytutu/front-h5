@@ -42,7 +42,6 @@ export default defineConfig({
     vueJsx(),
     Components({
       resolvers: [VantResolver()],
-      dts: true,
     }),
     createHtmlPlugin({
       minify: true,
