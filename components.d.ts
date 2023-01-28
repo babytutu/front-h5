@@ -12,7 +12,7 @@ declare module '@vue/runtime-core' {
     TGroup: typeof import('./src/components/T-group.vue')['default']
     TItem: typeof import('./src/components/T-item.vue')['default']
     TList: typeof import('./src/components/T-list.vue')['default']
-    TNav: typeof import('./src/components/T-nav.vue')['default']
+    VanArea: typeof import('vant/es')['Area']
     VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
     VanCellGroup: typeof import('vant/es')['CellGroup']
@@ -22,7 +22,10 @@ declare module '@vue/runtime-core' {
     VanIcon: typeof import('vant/es')['Icon']
     VanList: typeof import('vant/es')['List']
     VanNavBar: typeof import('vant/es')['NavBar']
+    VanPicker: typeof import('vant/es')['Picker']
+    VanPopup: typeof import('vant/es')['Popup']
     VanPullRefresh: typeof import('vant/es')['PullRefresh']
+    VanSpace: typeof import('vant/es')['Space']
     VanStepper: typeof import('vant/es')['Stepper']
   }
 }

@@ -5,8 +5,6 @@
         :title="item.data.title"
         :value="item.data.value"
         :label="item.data.label"
-        :is-link="item.data.link"
-        :to="item.data.to"
       />
     </template>
   </TList>
@@ -35,12 +33,11 @@ function mockData(page: number) {
   const arr = [] as Array<any>
   if (page < 5) {
     for (let i = 1; i < 31; i++) {
+      const id = (page - 1) * size + i
       arr.push({
-        title: `序号 ${i}`,
+        title: `序号 ${id}`,
         value: `页码 ${page}`,
-        id: i + '' + page,
-        link: true,
-        to: `/detail/${page}/${i}`,
+        id,
       })
     }
   }

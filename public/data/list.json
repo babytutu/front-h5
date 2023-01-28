@@ -18,9 +18,9 @@
         "label": "Pinia示例"
       },
       {
-        "title": "城市列表",
-        "to": "/city",
-        "label": "热门城市列表"
+        "title": "天气预报",
+        "to": "/weather",
+        "label": "近3天天气预报"
       },
       {
         "title": "MacApps",

@@ -7,15 +7,7 @@
       @load="onLoad"
     >
       <template v-for="item in list" :key="item.id">
-        <slot :data="item">
-          <van-cell
-            :title="item.title"
-            :value="item.value"
-            :label="item.label"
-            :is-link="item.link"
-            :to="item.to"
-          />
-        </slot>
+        <slot :data="item" />
       </template>
     </van-list>
   </van-pull-refresh>

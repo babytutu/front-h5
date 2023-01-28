@@ -1,18 +1,16 @@
 <template>
   <van-config-provider :theme="isDarkMode ? 'dark' : 'light'">
     <div class="warper">
-      <TNav v-if="showNav" />
       <div class="app-content">
         <router-view />
       </div>
       <div class="van-safe-area-bottom"></div>
     </div>
-    <van-icon name="wap-home" class="backToHome" @click="$router.push('/')" />
+    <van-icon v-if="$route.path !== '/'" name="wap-home" class="backToHome" @click="$router.push('/')" />
   </van-config-provider>
 </template>
 
 <script setup lang="ts">
-const showNav = window.navigator.userAgent.toLowerCase().indexOf('micromessenger') <= -1
 const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 </script>
 

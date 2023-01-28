@@ -27,28 +27,20 @@ export const routes = [
     component: () => import('@/views/listPage.vue'),
   },
   {
-    path: '/detail/:page/:index',
-    name: 'detail',
+    path: '/counter',
+    name: 'counter',
     meta: {
-      title: '详情',
+      title: '计数器',
     },
-    component: () => import('@/views/detailPage.vue'),
+    component: () => import('@/views/counterPage.vue'),
   },
   {
-    path: '/city',
-    name: 'city',
-    meta: {
-      title: '城市列表',
-    },
-    component: () => import('@/views/cityPage.vue'),
-  },
-  {
-    path: '/weather/:adcode',
+    path: '/weather',
     name: 'weather',
     meta: {
       title: '天气预报',
     },
-    component: () => import('@/views/weatherInfo.vue'),
+    component: () => import('@/views/cityPage.vue'),
   },
   {
     path: '/MacApps',
@@ -57,14 +49,6 @@ export const routes = [
       title: 'MacApps',
     },
     component: () => import('@/views/MacApps.vue'),
-  },
-  {
-    path: '/counter',
-    name: 'counter',
-    meta: {
-      title: '计数器',
-    },
-    component: () => import('@/views/counterPage.vue'),
   },
   {
     path: '/url/:url/:title',

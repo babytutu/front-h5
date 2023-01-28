@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vant/area-data": "^1.4.0",
     "pinia": "^2.0.28",
     "vant": "^4.0.8",
     "vue": "^3.2.45",

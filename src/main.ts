@@ -21,7 +21,6 @@ router.beforeEach((to, from, next) => {
   // 更新标题
   if (linkTitle || title) {
     global.document.title = linkTitle || title
-    to.meta.title = linkTitle || title
   }
   next()
 })
