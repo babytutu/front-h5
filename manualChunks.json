@@ -1,18 +1,15 @@
 {
   "api": [
     "./src/views/cityPage.vue",
-    "./src/views/weatherInfo.vue"
-  ],
-  "home": [
-    "./src/views/homePage.vue"
+    "./src/views/MacApps.vue"
   ],
   "tool": [
     "./src/views/listPage.vue",
-    "./src/views/detailPage.vue",
     "./src/views/iframePage.vue",
     "./src/views/counterPage.vue"
   ],
   "other": [
+    "./src/views/homePage.vue",
     "./src/views/qaPage.vue"
   ]
 }
