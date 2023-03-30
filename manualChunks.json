@@ -1,15 +1,9 @@
 {
-  "api": [
-    "./src/views/cityPage.vue",
-    "./src/views/MacApps.vue"
-  ],
+  "api": ["./src/views/cityPage.vue", "./src/views/MacApps.vue"],
   "tool": [
     "./src/views/listPage.vue",
     "./src/views/iframePage.vue",
     "./src/views/counterPage.vue"
   ],
-  "other": [
-    "./src/views/homePage.vue",
-    "./src/views/qaPage.vue"
-  ]
+  "other": ["./src/views/homePage.vue", "./src/views/qaPage.vue"]
 }

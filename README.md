@@ -1,8 +1,8 @@
 # 前端集中营
 
-基于create-vue开发，搭配使用ts,vue-router,pinia,vite
+基于 create-vue 开发，搭配使用 ts,vue-router,pinia,vite
 
-使用vue3版本，搭配vant组件库，搭配GitHub Actions自动部署最新代码
+使用 vue3 版本，搭配 vant 组件库，搭配 GitHub Actions 自动部署最新代码
 
 ## 部署相关
 
@@ -11,6 +11,7 @@
 ```bash
 yarn build
 ```
+
 生成`dist`目录
 
 ## 开发说明
@@ -23,7 +24,7 @@ yarn
 
 ### 开启本地开发模式
 
-- 默认端口9090，`vite.config.js`文件中配置
+- 默认端口 9090，`vite.config.js`文件中配置
 
 ```bash
 yarn start
@@ -41,7 +42,7 @@ yarn build
 yarn lint
 ```
 
-## src目录结构
+## src 目录结构
 
 ```
 ├── public               // 非打包文件目录

@@ -3,7 +3,9 @@
     <template #label>
       <div class="description" v-html="info.description"></div>
       <div><van-icon class="icon" name="link-o" />{{ info.link }}</div>
-      <div><van-icon class="icon" name="clock-o" /><i>{{ info.pubDate }}</i></div>
+      <div>
+        <van-icon class="icon" name="clock-o" /><i>{{ info.pubDate }}</i>
+      </div>
     </template>
   </van-cell>
 </template>
@@ -33,17 +35,15 @@ const copy = () => {
 }
 
 onMounted(() => {
-  const [
-    title,
-    link,
-    pubDate,,,
-    description
-  ] = props.data
+  const [title, link, pubDate, , , description] = props.data
   info.value = {
     title: title.textContent,
     link: link.textContent,
     pubDate: new Date(pubDate.textContent).toLocaleString(),
-    description: description.textContent.replace('Download 点击前往下载 欢迎每日关注更新内容 ', '')
+    description: description.textContent.replace(
+      'Download 点击前往下载 欢迎每日关注更新内容 ',
+      ''
+    ),
   }
 })
 </script>

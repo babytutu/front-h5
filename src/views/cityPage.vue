@@ -9,7 +9,16 @@
         :value="weeks[i.week ? i.week - 1 : 0]"
       >
         <template #label>
-          {{i.dayweather + '~' + i.nightweather + ' (' + i.nighttemp + '℃~' + i.daytemp + '℃)'}}
+          {{
+            i.dayweather +
+            '~' +
+            i.nightweather +
+            ' (' +
+            i.nighttemp +
+            '℃~' +
+            i.daytemp +
+            '℃)'
+          }}
         </template>
       </van-cell>
     </template>
@@ -22,7 +31,12 @@
       @click="show = true"
     />
     <van-popup v-model:show="show" position="bottom">
-      <van-area title="标题" :area-list="areaList" :columns-num="2" @confirm="onConfirm" />
+      <van-area
+        title="标题"
+        :area-list="areaList"
+        :columns-num="2"
+        @confirm="onConfirm"
+      />
     </van-popup>
     <template v-if="cityInfo.city">
       <van-cell :title="cityInfo.city" :value="cityInfo.reporttime" />
@@ -33,7 +47,16 @@
         :value="weeks[i.week ? i.week - 1 : 0]"
       >
         <template #label>
-          {{i.dayweather + '~' + i.nightweather + ' (' + i.nighttemp + '℃~' + i.daytemp + '℃)'}}
+          {{
+            i.dayweather +
+            '~' +
+            i.nightweather +
+            ' (' +
+            i.nighttemp +
+            '℃~' +
+            i.daytemp +
+            '℃)'
+          }}
         </template>
       </van-cell>
     </template>
@@ -43,7 +66,7 @@
 import { onMounted, ref } from 'vue'
 import { showLoadingToast, showFailToast, closeToast } from 'vant'
 import { getWeather, getLoaction } from '@/plugins/amap'
-import { areaList } from '@vant/area-data';
+import { areaList } from '@vant/area-data'
 
 import 'vant/es/toast/style'
 
@@ -63,13 +86,7 @@ const weeks: Array<string> = [
 
 const onConfirm = (data: any) => {
   show.value = false
-  const [
-    ,
-    {
-      text,
-      value
-    }
-  ] = data.selectedOptions
+  const [, { text, value }] = data.selectedOptions
   fieldValue.value = text
   getWeatherByCode(value).then((res: any) => {
     cityInfo.value = res
@@ -86,9 +103,7 @@ const getWeatherByCode = (code: string) => {
   return getWeather(code).then((res: any) => {
     const {
       count,
-      forecasts: [
-        weather
-      ]
+      forecasts: [weather],
     } = res
     if (count === '1') {
       closeToast()
@@ -103,15 +118,15 @@ const getWeatherByCode = (code: string) => {
 }
 
 onMounted(() => {
-  getLoaction().then((res: any) => {
-    const {
-      adcode
-    } = res
-    getWeatherByCode(adcode).then((res: any) => {
-      weatherInfo.value = res
+  getLoaction()
+    .then((res: any) => {
+      const { adcode } = res
+      getWeatherByCode(adcode).then((res: any) => {
+        weatherInfo.value = res
+      })
     })
-  }).catch((err) => {
-    showFailToast(err)
-  })
+    .catch((err) => {
+      showFailToast(err)
+    })
 })
 </script>

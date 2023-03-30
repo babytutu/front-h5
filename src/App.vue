@@ -6,7 +6,12 @@
       </div>
       <div class="van-safe-area-bottom"></div>
     </div>
-    <van-icon v-if="$route.path !== '/'" name="wap-home" class="backToHome" @click="$router.push('/')" />
+    <van-icon
+      v-if="$route.path !== '/'"
+      name="wap-home"
+      class="backToHome"
+      @click="$router.push('/')"
+    />
   </van-config-provider>
 </template>
 
