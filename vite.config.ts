@@ -45,20 +45,44 @@ export default defineConfig({
     }),
     createHtmlPlugin({
       minify: true,
-      /**
-       * 在这里写entry后，你将不需要在`index.html`内添加 script 标签，原有标签需要删除
-       * @default src/main.ts
-       */
-      entry: 'src/main.ts',
-      /**
-       * 需要注入 index.html ejs 模版的数据
-       */
-      inject: {
-        data: {
-          title: '前端集中营',
-          version,
+      pages: [
+        {
+          /**
+           * 在这里写entry后，你将不需要在`index.html`内添加 script 标签，原有标签需要删除
+           * @default src/main.ts
+           */
+          entry: 'src/main.ts',
+          filename: 'index.html',
+          template: 'index.html',
+          /**
+           * 需要注入 index.html ejs 模版的数据
+           */
+          injectOptions: {
+            data: {
+              title: '前端集中营',
+              version,
+            },
+          },
         },
-      },
+        {
+          /**
+           * 在这里写entry后，你将不需要在`index.html`内添加 script 标签，原有标签需要删除
+           * @default src/main.ts
+           */
+          entry: 'src/main.ts',
+          filename: 'test.html',
+          template: 'test.html',
+          /**
+           * 需要注入 test.html ejs 模版的数据
+           */
+          injectOptions: {
+            data: {
+              title: '前端集中营-test',
+              version,
+            },
+          },
+        },
+      ]
     }),
   ],
   resolve: {
