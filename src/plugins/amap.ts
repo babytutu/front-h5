@@ -12,8 +12,6 @@ const locationUrl = `${host}/v3/ip?key=${key}`
 const weatherUrl = `${host}/v3/weather/weatherInfo?key=${key}&extensions=all`
 // 搜索位置
 const searchPlaceUrl = `${host}/v3/place/text?key=${key}&extensions=base`
-// 批量查询
-const batchUrl = `${host}/v3/batch?key=${key}`
 
 /**
  * 返回resapi方法封装
@@ -32,21 +30,6 @@ function getRestapi(url: string, err: any) {
   })
 }
 
-/**
- * 批量查询数据接口@see {@link https://lbs.amap.com/api/webservice/guide/api/batchrequest}
- * @param {object} data 批量查询
- */
-function batchRestapi(data: object) {
-  return new Promise((resolve, reject) => {
-    axios.post(batchUrl, data).then((res: any) => {
-      if (res?.data?.length) {
-        resolve(res.data)
-      } else {
-        reject(new Error('信息获取失败'))
-      }
-    })
-  })
-}
 /**
  * 查询省市区信息@see {@link https://lbs.amap.com/api/webservice/guide/api/district}
  * @param {string} keywords 地区关键字，全国为空
@@ -106,15 +89,4 @@ export function searchPlace(
     `${searchPlaceUrl}&city=${city}&keywords=${keywords}&page=${page}&offset=${offset}`,
     '暂无结果'
   )
-}
-
-/**
- * 批量查询城市看起实时天气
- * @param {array} arr 城市列表
- */
-export function getBatchWeather(arr: Array<string>) {
-  const ops: Array<object> = arr.map((i: string) => ({
-    url: `/v3/weather/weatherInfo?key=${key}&extensions=base&city=${i}`,
-  }))
-  return batchRestapi({ ops })
 }

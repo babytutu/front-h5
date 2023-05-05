@@ -88,9 +88,13 @@ const onConfirm = (data: any) => {
   show.value = false
   const [, { text, value }] = data.selectedOptions
   fieldValue.value = text
-  getWeatherByCode(value).then((res: any) => {
-    cityInfo.value = res
-  })
+  getWeatherByCode(value)
+    .then((res: any) => {
+      cityInfo.value = res
+    })
+    .catch((err) => {
+      showFailToast(err)
+    })
 }
 
 const getWeatherByCode = (code: string) => {
@@ -105,8 +109,8 @@ const getWeatherByCode = (code: string) => {
       count,
       forecasts: [weather],
     } = res
+    closeToast()
     if (count === '1') {
-      closeToast()
       return {
         ...weather,
         code,
