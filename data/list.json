@@ -28,6 +28,11 @@
         "label": "Mac软件"
       },
       {
+        "title": "侦探小说",
+        "to": "/books",
+        "label": "东野圭吾"
+      },
+      {
         "title": "Blog",
         "to": "/url/https%3A%2F%2Fbabytutu.github.io/Blog",
         "label": "学无止境"
