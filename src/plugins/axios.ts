@@ -12,7 +12,7 @@ axios.defaults.headers.common['Content-Type'] = 'application/json;charset=utf-8'
 const config = {
   // baseURL,
   timeout: 60 * 100, // Timeout
-  withCredentials: true, // Check cross-site Access-Control
+  // withCredentials: true, // Check cross-site Access-Control
 }
 
 export const $http = axios.create(config)

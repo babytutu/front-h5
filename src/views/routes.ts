@@ -59,6 +59,14 @@ export const routes = [
     component: () => import('@/views/bookList.vue'),
   },
   {
+    path: '/yLibrary',
+    name: 'yLibrary',
+    meta: {
+      title: '图书馆',
+    },
+    component: () => import('@/views/yLibrary.vue'),
+  },
+  {
     path: '/url/:url/:title',
     name: 'url',
     meta: {
