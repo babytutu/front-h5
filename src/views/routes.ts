@@ -51,6 +51,14 @@ export const routes = [
     component: () => import('@/views/MacApps.vue'),
   },
   {
+    path: '/books',
+    name: 'books',
+    meta: {
+      title: 'books',
+    },
+    component: () => import('@/views/bookList.vue'),
+  },
+  {
     path: '/url/:url/:title',
     name: 'url',
     meta: {
