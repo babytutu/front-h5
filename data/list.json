@@ -33,6 +33,11 @@
         "label": "东野圭吾"
       },
       {
+        "title": "yLibrary",
+        "to": "/ylibrary",
+        "label": "图书馆"
+      },
+      {
         "title": "Blog",
         "to": "/url/https%3A%2F%2Fbabytutu.github.io/Blog",
         "label": "学无止境"
