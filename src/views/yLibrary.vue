@@ -78,22 +78,31 @@
       </template>
     </van-field>
   </template>
+  <!-- 底部弹出 -->
+  <van-popup
+    v-model:show="showBottom"
+    position="bottom"
+    closeable
+    close-icon="close"
+    :style="{ height: '100%' }"
+  >
+    <iframe :src="url" class="iframe" />
+  </van-popup>
 </template>
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { $http } from '@/plugins/axios'
-import { $apis } from '@/plugins/apis'
-
 import {
   showLoadingToast,
   closeToast,
   showToast,
-  showFailToast,
-  showSuccessToast,
   showConfirmDialog,
 } from 'vant'
 import 'vant/es/toast/style'
 import 'vant/es/dialog/style'
+
+import { $http } from '@/plugins/axios'
+import { $apis } from '@/plugins/apis'
+import { copyText } from '@/plugins/copy'
 
 const bookList = ref<any>([])
 const page = ref(1)
@@ -102,6 +111,8 @@ const total = ref(0)
 const pages = computed(() => Math.ceil(total.value / 20))
 const types = ref(['epub'])
 const books = ref<Array<any>>([])
+const showBottom = ref(false)
+const url = ref('')
 
 const search = () => {
   page.value = 1
@@ -155,55 +166,30 @@ const detail = async (id: string) => {
   if (!ipfs_cid) {
     showToast('暂无下载')
   }
-  const url = `https://ipfs-checker.1kbtool.com/${ipfs_cid}`
+  const link = `https://ipfs-checker.1kbtool.com/${ipfs_cid}`
   showConfirmDialog({
     title: 'IPFS下载',
-    confirmButtonText: '复制',
-    message: url,
-  }).then(() => {
-    copyText(url)
+    confirmButtonText: '访问',
+    cancelButtonText: '复制',
+    message: link,
   })
-}
-
-const copyText = (text: string) => {
-  // 数字没有 .length 不能执行selectText 需要转化成字符串
-  const textString = text.toString()
-  let input: any = document.querySelector('#copy-input')
-  if (!input) {
-    input = document.createElement('input')
-    input.id = 'copy-input'
-    input.readOnly = 'readOnly' // 防止ios聚焦触发键盘事件
-    input.style.position = 'absolute'
-    input.style.left = '-1000px'
-    input.style.zIndex = '-1000'
-    document.body.appendChild(input)
-  }
-
-  input.value = textString
-  // ios必须先选中文字且不支持 input.select();
-  selectText(input, 0, textString.length)
-  if (document.execCommand('copy')) {
-    document.execCommand('copy')
-    showSuccessToast('复制成功')
-  } else {
-    showFailToast('复制失败')
-  }
-  input.blur()
-
-  // input自带的select()方法在苹果端无法进行选择，所以需要自己去写一个类似的方法
-  // 选择文本。createTextRange(setSelectionRange)是input方法
-  function selectText(textbox: any, startIndex: number, stopIndex: number) {
-    if (textbox.createTextRange) {
-      const range = textbox.createTextRange()
-      range.collapse(true)
-      range.moveStart('character', startIndex) // 起始光标
-      range.moveEnd('character', stopIndex - startIndex) //结束光标
-      range.select() // 不兼容苹果
-    } else {
-      // firefox/chrome
-      textbox.setSelectionRange(startIndex, stopIndex)
-      textbox.focus()
-    }
-  }
+    .then(() => {
+      url.value = link
+      showBottom.value = true
+    })
+    .catch(() => {
+      const flag = copyText(link)
+      showToast({
+        type: flag ? 'success' : 'fail',
+        message: `复制${flag ? '成功' : '失败'}`,
+      })
+    })
 }
 </script>
+<style lang="stylus" scoped>
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
