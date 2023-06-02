@@ -131,7 +131,7 @@ const getList = async () => {
     message: '加载中...',
     forbidClick: true,
   })
-  const res: any = await $http.post($apis.api, {
+  const res: any = await $http.post($apis.api('http'), {
     url: `https://api.ylibrary.org/api/search/`,
     data: {
       keyword: keyword.value,
@@ -153,7 +153,7 @@ const detail = async (id: string) => {
     message: '加载中...',
     forbidClick: true,
   })
-  const res: any = await $http.post($apis.api, {
+  const res: any = await $http.post($apis.api('http'), {
     url: `https://api.ylibrary.org/api/detail/`,
     data: {
       id,

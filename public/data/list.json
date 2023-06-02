@@ -3,19 +3,9 @@
   "data": {
     "list": [
       {
-        "title": "常见问题",
-        "to": "/qa",
-        "label": "前端常见问题"
-      },
-      {
-        "title": "列表",
-        "to": "/list",
-        "label": "Vant列表加载示例"
-      },
-      {
-        "title": "计数器",
-        "to": "/counter",
-        "label": "Pinia示例"
+        "title": "随便写写",
+        "to": "/imgList",
+        "label": "图文列表"
       },
       {
         "title": "天气预报",
@@ -41,11 +31,6 @@
         "title": "Blog",
         "to": "/url/https%3A%2F%2Fbabytutu.github.io/Blog",
         "label": "学无止境"
-      },
-      {
-        "title": "Vant@4",
-        "to": "/url/https%3A%2F%2Fyouzan.github.io%2Fvant%2Fmobile.html/Vant",
-        "label": "Vant4组件库"
       }
     ]
   }

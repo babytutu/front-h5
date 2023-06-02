@@ -39,7 +39,7 @@ $http.interceptors.response.use(
     // 只处理接口参数正常数据
     if (infocode !== '10000') {
       // 统一处理接口报错信息，弹出后端的错误信息
-      showFailToast('查询失败')
+      showFailToast('操作失败')
       return Promise.reject(data)
     }
     return data

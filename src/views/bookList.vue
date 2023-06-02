@@ -26,7 +26,7 @@ const getList = async () => {
     message: '加载中...',
     forbidClick: true,
   })
-  const res: any = await $http.post($apis.api, {
+  const res: any = await $http.post($apis.api('http'), {
     url: `https://baike.baidu.com/starmap/api/getlemmalist?nodeId=b699ee5348d583862bfa148f&pn=${page.value}&rn=50`,
   })
   const { hasMore, list } = res.data

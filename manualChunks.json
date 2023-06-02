@@ -1,5 +1,10 @@
 {
-  "api": ["./src/views/cityPage.vue", "./src/views/MacApps.vue"],
+  "api": [
+    "./src/views/cityPage.vue",
+    "./src/views/MacApps.vue",
+    "./src/views/imgList.vue",
+    "./src/views/imgUpload.vue"
+  ],
   "tool": [
     "./src/views/listPage.vue",
     "./src/views/iframePage.vue",

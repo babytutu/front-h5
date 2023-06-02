@@ -17,7 +17,7 @@ onMounted(async () => {
     message: '加载中...',
     forbidClick: true,
   })
-  const res: any = await $http.post($apis.api, {
+  const res: any = await $http.post($apis.api('http'), {
     url: 'https://www.digit77.com/categories/macapps/index.xml',
   })
 

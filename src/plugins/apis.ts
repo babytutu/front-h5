@@ -7,5 +7,5 @@ export const $apis = {
   weather: {
     city: 'data/city.json', // 城市列表
   },
-  api: 'https://87tetwnrqe.hk.aircode.run/http', // 外部api转发接口
+  api: (key: string) => `https://87tetwnrqe.hk.aircode.run/${key}`, // 外部api转发接口
 }
