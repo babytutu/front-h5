@@ -52,7 +52,7 @@ onMounted(() => {
   digit.value = store.count
 })
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .bottom-btn{
   margin: 16px
 }

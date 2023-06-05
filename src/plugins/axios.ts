@@ -45,7 +45,7 @@ $http.interceptors.response.use(
     return data
   },
   function (error) {
-    showFailToast('查询失败')
+    showFailToast('操作失败')
     // Do something with response error
     return Promise.reject(error)
   }

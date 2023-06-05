@@ -83,11 +83,11 @@ export const routes = [
     component: () => import('@/views/imgList.vue'),
   },
   {
-    path: '/imgUpload',
-    name: 'imgUpload',
+    path: '/addItem',
+    name: 'addItem',
     meta: {
-      title: '图片上传',
+      title: '新增',
     },
-    component: () => import('@/views/imgUpload.vue'),
+    component: () => import('@/views/addItem.vue'),
   },
 ]

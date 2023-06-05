@@ -19,7 +19,7 @@
 const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 html,
 body {
   height 100%

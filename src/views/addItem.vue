@@ -20,7 +20,7 @@
         label="描述"
         placeholder="描述"
         type="textarea"
-        maxlength="50"
+        maxlength="20"
         rows="2"
         autosize
         show-word-limit
@@ -43,16 +43,17 @@ import { $apis } from '@/plugins/apis'
 import { showFailToast, showSuccessToast } from 'vant'
 import 'vant/es/toast/style'
 
+const router = useRouter()
+
 const fileList = ref([])
 const content = ref<string>('')
-const router = useRouter()
 
 const beforeRead = (file: any) => {
   return new Promise<any>((resolve) => {
     new Compressor(file, {
-      quality: 0.7,
-      width: 200,
-      height: 200,
+      quality: 0.8,
+      width: 500,
+      height: 500,
       success: resolve,
       error() {
         showFailToast('图片上传失败')
@@ -93,7 +94,7 @@ const onSubmit = () => {
     })
 }
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .form-btn {
   margin: 16px;
 }
