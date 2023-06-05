@@ -30,7 +30,7 @@ interface Item {
 }
 
 defineProps<{
-  title: string
+  title?: string
   list: Array<Item>
 }>()
 </script>

@@ -12,7 +12,6 @@
   ],
   "other": [
     "./src/views/homePage.vue",
-    "./src/views/bookList.vue",
     "./src/views/iframePage.vue"
   ]
 }

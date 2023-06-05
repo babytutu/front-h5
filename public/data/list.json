@@ -18,11 +18,6 @@
         "label": "Mac软件"
       },
       {
-        "title": "侦探小说",
-        "to": "/books",
-        "label": "东野圭吾"
-      },
-      {
         "title": "yLibrary",
         "to": "/ylibrary",
         "label": "图书馆"
