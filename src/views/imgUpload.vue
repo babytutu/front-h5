@@ -53,7 +53,6 @@ const beforeRead = (file: any) => {
       quality: 0.7,
       width: 200,
       height: 200,
-      resize: 'contain',
       success: resolve,
       error() {
         showFailToast('图片上传失败')

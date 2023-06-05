@@ -10,10 +10,11 @@
             width="100"
             height="100"
             :src="i.url"
+            @click="showImagePreview([i.url])"
           />
           <div>
             <div>{{ i.content }}</div>
-            <div>{{ i.createdAt }}</div>
+            <div class="time">{{ new Date(i.createdAt).toLocaleString() }}</div>
           </div>
         </van-space>
         <template #right>
@@ -36,7 +37,8 @@ import { $apis } from '@/plugins/apis'
 import {
   showLoadingToast,
   closeToast,
-  showConfirmDialog
+  showConfirmDialog,
+  showImagePreview,
 } from 'vant'
 import 'vant/es/toast/style'
 import 'vant/es/dialog/style'
@@ -78,11 +80,14 @@ const deleteItem = (i: any) => {
   })
 }
 </script>
-<style>
+<style lang="stylus" scoped>
 .delete-button {
   height: 100%;
 }
 .list-item {
   padding: 16px;
+  .time {
+    font-size: 12px;
+  }
 }
 </style>
