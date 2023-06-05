@@ -1,14 +1,18 @@
 {
   "api": [
-    "./src/views/cityPage.vue",
-    "./src/views/MacApps.vue",
-    "./src/views/imgList.vue",
-    "./src/views/imgUpload.vue"
+    "./src/views/cityPage.vue"
+  ],
+  "app": [
+    "./src/views/MacApps.vue"
   ],
   "tool": [
-    "./src/views/listPage.vue",
-    "./src/views/iframePage.vue",
-    "./src/views/counterPage.vue"
+    "./src/views/imgList.vue",
+    "./src/views/addItem.vue",
+    "./src/views/yLibrary.vue"
   ],
-  "other": ["./src/views/homePage.vue", "./src/views/qaPage.vue"]
+  "other": [
+    "./src/views/homePage.vue",
+    "./src/views/bookList.vue",
+    "./src/views/iframePage.vue"
+  ]
 }
