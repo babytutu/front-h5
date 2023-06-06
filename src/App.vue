@@ -1,24 +1,17 @@
 <template>
-  <van-config-provider :theme="isDarkMode ? 'dark' : 'light'">
-    <div class="warper">
-      <div class="app-content">
-        <router-view />
-      </div>
-      <div class="van-safe-area-bottom"></div>
+  <div class="warper">
+    <div class="app-content">
+      <router-view />
     </div>
-    <van-icon
-      v-if="$route.path !== '/'"
-      name="wap-home"
-      class="backToHome"
-      @click="$router.push('/')"
-    />
-  </van-config-provider>
+    <div class="van-safe-area-bottom"></div>
+  </div>
+  <van-icon
+    v-if="$route.path !== '/'"
+    name="wap-home"
+    class="backToHome"
+    @click="$router.push('/')"
+  />
 </template>
-
-<script setup lang="ts">
-const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-</script>
-
 <style lang="stylus" scoped>
 html,
 body {

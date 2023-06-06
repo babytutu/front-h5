@@ -1,7 +1,7 @@
 <template>
   <TGroup title="Home" :list="list" />
   <div class="xcx" v-if="isWeiXin">
-    <van-image width="240" :src="xcx">
+    <van-image width="240" src="/assets/xcx.png">
       <template v-slot:loading>
         <van-loading type="spinner" size="20" />
       </template>
@@ -20,7 +20,6 @@ interface res {
 
 const list = ref<Array<any>>([])
 const isWeiXin = ref<boolean>(false)
-const xcx = 'src/assets/xcx.png'
 
 onMounted(async () => {
   // 加载列表配置
