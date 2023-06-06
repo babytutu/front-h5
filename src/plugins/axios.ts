@@ -42,7 +42,7 @@ $http.interceptors.response.use(
       showFailToast('操作失败')
       return Promise.reject(data)
     }
-    return data
+    return response.data
   },
   function (error) {
     showFailToast('操作失败')

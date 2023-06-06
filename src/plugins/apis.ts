@@ -8,4 +8,5 @@ export const $apis = {
     city: 'data/city.json', // 城市列表
   },
   api: (key: string) => `https://87tetwnrqe.hk.aircode.run/${key}`, // 外部api转发接口
+  emojihub: 'https://emojihub.yurace.pro/api/all/',
 }

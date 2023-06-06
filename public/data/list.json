@@ -4,28 +4,27 @@
     "list": [
       {
         "title": "随便写写",
-        "to": "/imgList",
-        "label": "图文列表"
+        "to": "/imgList"
       },
       {
-        "title": "天气预报",
-        "to": "/weather",
-        "label": "近3天天气预报"
+        "title": "近3天天气预报",
+        "to": "/weather"
       },
       {
-        "title": "MacApps",
-        "to": "/MacApps",
-        "label": "Mac软件"
+        "title": "Mac软件",
+        "to": "/MacApps"
       },
       {
-        "title": "yLibrary",
-        "to": "/ylibrary",
-        "label": "图书馆"
+        "title": "yLibrary图书馆",
+        "to": "/ylibrary"
       },
       {
-        "title": "Blog",
-        "to": "/url/https%3A%2F%2Fbabytutu.github.io/Blog",
-        "label": "学无止境"
+        "title": "表情合集",
+        "to": "/emojiLib"
+      },
+      {
+        "title": "BLOG",
+        "to": "/url/babytutu.github.io/BLOG"
       }
     ]
   }

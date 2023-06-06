@@ -59,7 +59,6 @@ export default defineConfig({
            */
           injectOptions: {
             data: {
-              title: '前端集中营',
               version,
             },
           },
@@ -77,7 +76,6 @@ export default defineConfig({
            */
           injectOptions: {
             data: {
-              title: '前端集中营-test',
               version,
             },
           },

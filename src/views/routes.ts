@@ -4,7 +4,7 @@ export const routes = [
     path: '/',
     name: 'home',
     meta: {
-      title: '前端集中营',
+      title: '自娱自乐',
       home: true,
     },
     component: () => import('@/views/homePage.vue'),
@@ -44,7 +44,7 @@ export const routes = [
   },
   {
     path: '/MacApps',
-    name: 'MacApps',
+    name: 'Mac软件',
     meta: {
       title: 'MacApps',
     },
@@ -54,7 +54,7 @@ export const routes = [
     path: '/yLibrary',
     name: 'yLibrary',
     meta: {
-      title: '图书馆',
+      title: 'yLibrary图书馆',
     },
     component: () => import('@/views/yLibrary.vue'),
   },
@@ -62,7 +62,7 @@ export const routes = [
     path: '/url/:url/:title',
     name: 'url',
     meta: {
-      title: '组件库',
+      title: '',
     },
     component: () => import('@/views/iframePage.vue'),
   },
@@ -81,5 +81,13 @@ export const routes = [
       title: '新增',
     },
     component: () => import('@/views/addItem.vue'),
+  },
+  {
+    path: '/emojiLib',
+    name: 'emojiLib',
+    meta: {
+      title: '表情合集',
+    },
+    component: () => import('@/views/emojiLib.vue'),
   },
 ]

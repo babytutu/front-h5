@@ -1,5 +1,5 @@
 <template>
-  <van-cell-group title="随便写写">
+  <van-cell-group title="左右滑动操作">
     <van-swipe-cell v-for="i in list" :key="i._id">
       <van-cell
         :title="i.content"
@@ -101,7 +101,7 @@ const getList = () => {
       category: 'imgList',
     })
     .then((res: any) => {
-      list.value = res
+      list.value = res.data
       closeToast()
     })
 }

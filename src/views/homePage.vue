@@ -1,7 +1,16 @@
 <template>
-  <TGroup title="Home" :list="list" />
-  <div class="xcx" v-if="isWeiXin">
-    <van-image width="240" src="assets/xcx.png">
+  <van-cell-group>
+    <van-cell
+      v-for="i in list"
+      :key="i.title"
+      :title="i.title"
+      :to="i.to"
+      is-link
+    >
+    </van-cell>
+  </van-cell-group>
+  <div v-if="isWeiXin" class="xcx">
+    <van-image width="220" src="assets/xcx.png">
       <template v-slot:loading>
         <van-loading type="spinner" size="20" />
       </template>
@@ -14,23 +23,19 @@ import { onMounted, ref } from 'vue'
 import { $http } from '@/plugins/axios'
 import { $apis } from '@/plugins/apis'
 
-interface res {
-  list: Array<any>
-}
-
 const list = ref<Array<any>>([])
 const isWeiXin = ref<boolean>(false)
 
 onMounted(async () => {
   // 加载列表配置
-  const res: res = await $http.get($apis.list.list)
-  list.value = res.list
+  const res: any = await $http.get($apis.list.list)
+  list.value = res.data.list
   isWeiXin.value = !!window.WeixinJSBridge
 })
 </script>
 <style lang="stylus" scoped>
 .xcx {
-  padding-top 10px
-  text-align: center
+  margin-top 10px
+  text-align: center;
 }
 </style>

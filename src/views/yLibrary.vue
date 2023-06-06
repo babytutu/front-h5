@@ -56,7 +56,7 @@
     </van-cell>
   </template>
   <template v-else>
-    <van-cell title="暂无结果"></van-cell>
+    <van-empty description="暂无结果" />
   </template>
   <template v-if="total">
     <van-cell>第 {{ page }} 页， 共 {{ total }} 条 / {{ pages }} 页</van-cell>
@@ -140,7 +140,7 @@ const getList = async () => {
     },
     method: 'post',
   })
-  const { hits, data } = res
+  const { hits, data } = res.data
   total.value = hits
   bookList.value = data
   changeList(types.value)
@@ -161,7 +161,7 @@ const detail = async (id: string) => {
     },
     method: 'post',
   })
-  const { ipfs_cid } = res
+  const { ipfs_cid } = res.data
   closeToast()
   if (!ipfs_cid) {
     showToast('暂无下载')
