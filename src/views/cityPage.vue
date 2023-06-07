@@ -1,37 +1,16 @@
 <template>
   <van-cell-group title="高德API">
-    <template v-if="weatherInfo.city">
-      <van-cell :title="weatherInfo.city" :value="weatherInfo.reporttime" />
-      <van-cell
-        v-for="i in weatherInfo.casts"
-        :key="i.date"
-        :title="i.date"
-        :value="weeks[i.week ? i.week - 1 : 0]"
-      >
-        <template #label>
-          {{
-            i.dayweather +
-            '~' +
-            i.nightweather +
-            ' (' +
-            i.nighttemp +
-            '℃~' +
-            i.daytemp +
-            '℃)'
-          }}
-        </template>
-      </van-cell>
-    </template>
     <van-field
       v-model="fieldValue"
       is-link
       readonly
-      label="其他城市"
+      label="城市"
       placeholder="请选择"
       @click="show = true"
     />
     <van-popup v-model:show="show" position="bottom">
       <van-area
+        v-model="current"
         title="标题"
         :area-list="areaList"
         :columns-num="2"
@@ -39,7 +18,10 @@
       />
     </van-popup>
     <template v-if="cityInfo.city">
-      <van-cell :title="cityInfo.city" :value="cityInfo.reporttime" />
+      <van-cell
+        :title="cityInfo.province + '-' + cityInfo.city"
+        :value="cityInfo.reporttime"
+      />
       <van-cell
         v-for="i in cityInfo.casts"
         :key="i.date"
@@ -64,13 +46,11 @@
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { showLoadingToast, showFailToast, closeToast } from 'vant'
-import { getWeather, getLoaction } from '@/plugins/amap'
-import { areaList } from '@vant/area-data'
-
+import { showLoadingToast, closeToast } from 'vant'
+import { $http } from '@/plugins/axios'
+import { $apis } from '@/plugins/apis'
 import 'vant/es/toast/style'
 
-const weatherInfo = ref<any>({})
 const show = ref(false)
 const cityInfo = ref<any>({})
 const fieldValue = ref('')
@@ -84,53 +64,56 @@ const weeks: Array<string> = [
   '周日',
 ]
 
+const current = ref<string>('')
+
+const areaList = ref<any>({
+  province_list: {},
+  city_list: {},
+})
+
 const onConfirm = (data: any) => {
   show.value = false
-  const [, { text, value }] = data.selectedOptions
-  fieldValue.value = text
-  getWeatherByCode(value)
-    .then((res: any) => {
-      cityInfo.value = res
-    })
-    .catch((err) => {
-      showFailToast(err)
-    })
+  const [
+    { text: province, value: provinceCode },
+    { text = '', value = '' } = {},
+  ] = data.selectedOptions
+  fieldValue.value = text || province
+  getInfoByCode(value || provinceCode)
 }
 
-const getWeatherByCode = (code: string) => {
+const getInfoByCode = (code: string) => {
   showLoadingToast({
     duration: 0,
     message: '加载中...',
     forbidClick: true,
   })
 
-  return getWeather(code).then((res: any) => {
-    const {
-      count,
-      forecasts: [weather],
-    } = res
+  $http.get($apis.amap.weather(code)).then((res: any) => {
+    cityInfo.value = res.forecasts[0]
     closeToast()
-    if (count === '1') {
-      return {
-        ...weather,
-        code,
-      }
-    } else {
-      showFailToast('天气预报查询失败')
-    }
+  })
+}
+
+const getDistrictAll = () => {
+  $http.get($apis.amap.district).then((res: any) => {
+    const {
+      districts: [{ districts }],
+    } = res
+    districts.forEach((i: any) => {
+      areaList.value.province_list[i.adcode] = i.name
+      i.districts.forEach((j: any) => {
+        areaList.value.city_list[j.adcode] = j.name
+      })
+    })
   })
 }
 
 onMounted(() => {
-  getLoaction()
-    .then((res: any) => {
-      const { adcode } = res
-      getWeatherByCode(adcode).then((res: any) => {
-        weatherInfo.value = res
-      })
-    })
-    .catch((err) => {
-      showFailToast(err)
-    })
+  getDistrictAll()
+  $http.post($apis.amap.ip).then((res: any) => {
+    fieldValue.value = res.city
+    current.value = res.adcode
+    getInfoByCode(res.adcode)
+  })
 })
 </script>

@@ -9,31 +9,22 @@ export const routes = [
     },
     component: () => import('@/views/homePage.vue'),
   },
-  // 列表
-  // {
-  //   path: '/qa',
-  //   name: 'qa',
-  //   meta: {
-  //     title: '常见问题',
-  //   },
-  //   component: () => import('@/views/qaPage.vue'),
-  // },
-  // {
-  //   path: '/list',
-  //   name: 'list',
-  //   meta: {
-  //     title: '列表',
-  //   },
-  //   component: () => import('@/views/listPage.vue'),
-  // },
-  // {
-  //   path: '/counter',
-  //   name: 'counter',
-  //   meta: {
-  //     title: '计数器',
-  //   },
-  //   component: () => import('@/views/counterPage.vue'),
-  // },
+  {
+    path: '/list',
+    name: 'list',
+    meta: {
+      title: '列表',
+    },
+    component: () => import('@/views/listPage.vue'),
+  },
+  {
+    path: '/counter',
+    name: 'counter',
+    meta: {
+      title: '计数器',
+    },
+    component: () => import('@/views/counterPage.vue'),
+  },
   {
     path: '/weather',
     name: 'weather',

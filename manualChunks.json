@@ -1,9 +1,6 @@
 {
-  "api": [
+  "amap": [
     "./src/views/cityPage.vue"
-  ],
-  "app": [
-    "./src/views/MacApps.vue"
   ],
   "tool": [
     "./src/views/imgList.vue",
@@ -13,6 +10,9 @@
   ],
   "other": [
     "./src/views/homePage.vue",
-    "./src/views/iframePage.vue"
+    "./src/views/iframePage.vue",
+    "./src/views/listPage.vue",
+    "./src/views/counterPage.vue",
+    "./src/views/MacApps.vue"
   ]
 }

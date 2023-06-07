@@ -1,19 +1,17 @@
 <template>
   <TList ref="list" @getData="getData">
     <template #default="item">
-      <van-cell
-        :title="item.data.title"
-        :value="item.data.value"
-        :label="item.data.label"
-      />
+      <van-cell :title="item.data.title" :label="item.data.description" />
     </template>
   </TList>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
 import TList from '@/components/T-list.vue'
+import { $apis } from '@/plugins/apis'
+import { $http } from '@/plugins/axios'
 
-const size = 30
+const size = 10
 const list = ref<InstanceType<typeof TList> | null>(null)
 
 /**
@@ -21,29 +19,8 @@ const list = ref<InstanceType<typeof TList> | null>(null)
  * @param {Number} page 当前页数
  */
 function getData(page: number) {
-  setTimeout(() => {
-    const { arr, length } = mockData(page)
-    list.value?.renderList(arr, length < size)
-  }, 500)
-}
-/**
- * 模拟接口数据
- */
-function mockData(page: number) {
-  const arr = [] as Array<any>
-  if (page < 5) {
-    for (let i = 1; i < 31; i++) {
-      const id = (page - 1) * size + i
-      arr.push({
-        title: `序号 ${id}`,
-        value: `页码 ${page}`,
-        id,
-      })
-    }
-  }
-  return {
-    arr,
-    length: arr.length,
-  }
+  $http.get($apis.fakerapi('books', 20)).then((res: any) => {
+    list.value?.renderList(res.data, page > size)
+  })
 }
 </script>
