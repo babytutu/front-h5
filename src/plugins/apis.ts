@@ -7,13 +7,12 @@ export const $apis = {
   // 本地接口
   list: {
     list: 'data/list.json', // 列表
-    qa: 'data/qa.json', // 列表
   },
   weather: {
     city: 'data/city.json', // 城市列表
   },
   api: (key: string) => `https://87tetwnrqe.hk.aircode.run/${key}`, // 外部api转发接口
-  emojihub: 'https://emojihub.yurace.pro/api/all/', // 表情图标
+  emojihub: 'data/emojihub.json', // 表情图标
   amap: {
     ip: `${host}/v3/ip?key=${key}`,
     district: `${host}/v3/config/district?key=${key}&subdistrict=2`,
