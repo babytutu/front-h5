@@ -22,14 +22,13 @@
   </van-collapse>
 </template>
 <script lang="ts" setup>
-import { ref, onBeforeMount } from 'vue'
-import { $http } from '@/plugins/axios'
-import { $apis } from '@/plugins/apis'
-import { showLoadingToast, closeToast, showToast } from 'vant'
+import { ref } from 'vue'
+import { showToast } from 'vant'
 import 'vant/es/toast/style'
 import { copyText } from '@/plugins/copy'
+import { emoji } from '@/data/emoji'
 
-const list = ref<any>({})
+const list = ref<any>(emoji)
 const category = ref<Array<any>>([
   {
     label: '笑脸和人',
@@ -74,25 +73,6 @@ const copy = (text: string) => {
     message: `复制${flag ? '成功' : '失败'}`,
   })
 }
-
-onBeforeMount(() => {
-  showLoadingToast({
-    duration: 0,
-    message: '加载中...',
-    forbidClick: true,
-  })
-  $http.get($apis.emojihub).then((res: any) => {
-    res.forEach((i: any) => {
-      if (!list.value[i.category]) {
-        list.value[i.category] = []
-      }
-      if (!list.value[i.category].includes(i.htmlCode[0])) {
-        list.value[i.category].push(i.htmlCode[0])
-      }
-    })
-    closeToast()
-  })
-})
 </script>
 <style lang="stylus" scoped>
 .emoji {

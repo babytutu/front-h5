@@ -20,16 +20,12 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { $http } from '@/plugins/axios'
-import { $apis } from '@/plugins/apis'
+import { home } from '@/data/home'
 
-const list = ref<Array<any>>([])
+const list = ref<Array<any>>(home)
 const isWeiXin = ref<boolean>(false)
 
 onMounted(async () => {
-  // 加载列表配置
-  const res: any = await $http.get($apis.list.list)
-  list.value = res.data.list
   isWeiXin.value = !!window.WeixinJSBridge
 })
 </script>
