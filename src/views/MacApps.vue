@@ -41,23 +41,17 @@ onMounted(async () => {
     message: '加载中...',
     forbidClick: true,
   })
-  const res: any = await $http.post($apis.api('http'), {
+  const res: any = await $http.post($apis.api('xml2js'), {
     url: 'https://www.digit77.com/categories/macapps/index.xml',
   })
-
-  const data: any = new DOMParser().parseFromString(res.data, 'text/xml')
-
-  const nodes: any = data.firstChild.childNodes[1].childNodes || []
-  const value = Array.from(nodes)
-    .filter((i: any) => i.tagName === 'item')
-    .map((i: any) => Array.from(i.childNodes).filter((i: any) => i.tagName))
+  const value = res.data.rss.channel.item
   list.value = value.map((i: any) => {
-    const [title, link, pubDate, , , description] = i
+    const { title, link, pubDate, description } = i
     return {
-      title: title.textContent,
-      link: link.textContent,
-      pubDate: new Date(pubDate.textContent).toLocaleString(),
-      description: description.textContent.replace(
+      title,
+      link,
+      pubDate: new Date(pubDate.replace(' &#43;0800', '')).toLocaleString(),
+      description: description.replace(
         'Download 点击前往下载 欢迎每日关注更新内容 ',
         ''
       ),
