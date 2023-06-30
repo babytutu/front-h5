@@ -63,23 +63,18 @@ const beforeRead = (file: any) => {
 }
 
 const onSubmit = () => {
-  const [
-    {
-      file: { name },
-      file,
-    },
-  ] = fileList.value
+  const [{ file }] = fileList.value
 
   $http
     .post($apis.api('insert'), {
       content: content.value,
       category: 'imgList',
     })
-    .then(({ _id }: any) => {
+    .then((res: any) => {
       const formData = new FormData()
       formData.append('file', file)
-      formData.append('name', name)
-      formData.append('owner', _id)
+      formData.append('name', res.data._id + '.png')
+      formData.append('owner', res.data._id)
       formData.append('category', 'imgList')
       $http
         .post($apis.api('upload'), formData, {
