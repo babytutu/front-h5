@@ -13,9 +13,6 @@ import { VantResolver } from 'unplugin-vue-components/resolvers'
 
 import { createHtmlPlugin } from 'vite-plugin-html'
 
-// 分块打包配置
-import manualChunks from './manualChunks.json'
-
 // 获取最后一次提交的commitID,处理异常报错
 let version
 try {
@@ -80,7 +77,7 @@ export default defineConfig({
             },
           },
         },
-      ]
+      ],
     }),
   ],
   resolve: {
@@ -94,7 +91,17 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks,
+        manualChunks: (id: string) => {
+          if (id.includes('vant')) {
+            return 'vant'
+          }
+          if (id.includes('/views')) {
+            return 'views'
+          }
+          if (id.includes('node_modules')) {
+            return 'chunks'
+          }
+        },
       },
     },
   },
