@@ -2507,6 +2507,7 @@ __metadata:
     prettier: ^2.8.8
     stylus: ^0.59.0
     terser: ^5.17.6
+    tui-vue-log: ^0.0.2
     typescript: ~5.0.4
     unplugin-vue-components: ^0.24.1
     vant: ^4.4.1
@@ -4701,6 +4702,13 @@ __metadata:
   peerDependencies:
     typescript: ">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
   checksum: 1843f4c1b2e0f975e08c4c21caa4af4f7f65a12ac1b81b3b8489366826259323feb3fc7a243123453d2d1a02314205a7634e048d4a8009921da19f99755cdc48
+  languageName: node
+  linkType: hard
+
+"tui-vue-log@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "tui-vue-log@npm:0.0.2"
+  checksum: 5b7121a8535a2c9b64b371bd94ff6fe7bb62f0e63e5fd033a84b3dc980ca290391c5fef78274d1dc8fcf804c389862bcb454258a9db7229552d91e9d1e5ef205
   languageName: node
   linkType: hard
 

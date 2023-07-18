@@ -19,11 +19,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, inject } from 'vue'
 import { home } from '@/data/home'
 
 const list = ref<Array<any>>(home)
 const isWeiXin = ref<boolean>(false)
+const log: any = inject('log')
+
+log('a', 111)
 
 onMounted(async () => {
   isWeiXin.value = !!window.WeixinJSBridge
