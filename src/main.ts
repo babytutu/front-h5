@@ -16,6 +16,8 @@ app.use(log, {
   background: ['#303133', '#F56C6C'],
   style: 'padding: 4px 8px; color: #fff',
   border: '10px',
+  // 仅开发模式可见
+  display: import.meta.env.MODE === 'development',
 })
 
 const global = window as any
