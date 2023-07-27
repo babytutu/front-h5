@@ -53,7 +53,7 @@ import 'vant/es/toast/style'
 
 const show = ref(false)
 const cityInfo = ref<any>({})
-const fieldValue = ref('')
+const fieldValue = ref('杭州市')
 const weeks: Array<string> = [
   '周一',
   '周二',
@@ -64,7 +64,7 @@ const weeks: Array<string> = [
   '周日',
 ]
 
-const current = ref<string>('')
+const current = ref<string>('330100')
 
 const areaList = ref<any>({
   province_list: {},
@@ -88,32 +88,37 @@ const getInfoByCode = (code: string) => {
     forbidClick: true,
   })
 
-  $http.get($apis.amap.weather(code)).then((res: any) => {
-    cityInfo.value = res.forecasts[0]
-    closeToast()
-  })
+  $http
+    .post($apis.api('amap'), {
+      api: 'weather',
+      data: `city=${code}`,
+    })
+    .then((res: any) => {
+      cityInfo.value = res.forecasts[0]
+      closeToast()
+    })
 }
 
 const getDistrictAll = () => {
-  $http.get($apis.amap.district).then((res: any) => {
-    const {
-      districts: [{ districts }],
-    } = res
-    districts.forEach((i: any) => {
-      areaList.value.province_list[i.adcode] = i.name
-      i.districts.forEach((j: any) => {
-        areaList.value.city_list[j.adcode] = j.name
+  $http
+    .post($apis.api('amap'), {
+      api: 'district',
+    })
+    .then((res: any) => {
+      const {
+        districts: [{ districts }],
+      } = res
+      districts.forEach((i: any) => {
+        areaList.value.province_list[i.adcode] = i.name
+        i.districts.forEach((j: any) => {
+          areaList.value.city_list[j.adcode] = j.name
+        })
       })
     })
-  })
 }
 
 onMounted(() => {
   getDistrictAll()
-  $http.post($apis.amap.ip).then((res: any) => {
-    fieldValue.value = res.city
-    current.value = res.adcode
-    getInfoByCode(res.adcode)
-  })
+  getInfoByCode(current.value)
 })
 </script>
