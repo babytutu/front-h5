@@ -1,0 +1,1 @@
+const c=o=>{let t=!1;try{const e=document.createElement("input");e.value=o,document.body.appendChild(e),e.select(),document.execCommand("copy"),document.body.removeChild(e),t=!0}catch(e){console.log(e)}return t};export{c};
