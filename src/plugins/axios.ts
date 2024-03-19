@@ -34,10 +34,10 @@ $http.interceptors.response.use(
     // Do something with response data
     const {
       data, // 后端返回的数据，默认为空对象，前端js处理不会报错
-      infocode = '10000',
+      code = 200,
     } = response.data
     // 只处理接口参数正常数据
-    if (infocode !== '10000') {
+    if (code !== 200) {
       // 统一处理接口报错信息，弹出后端的错误信息
       showFailToast('操作失败')
       return Promise.reject(data)

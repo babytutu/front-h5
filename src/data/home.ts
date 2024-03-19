@@ -8,10 +8,6 @@ export const home = [
     to: '/counter',
   },
   {
-    title: '随便写写',
-    to: '/imgList',
-  },
-  {
     title: '近3天天气预报',
     to: '/weather',
   },
@@ -19,10 +15,10 @@ export const home = [
     title: 'Mac软件',
     to: '/MacApps',
   },
-  {
-    title: 'yLibrary图书馆',
-    to: '/ylibrary',
-  },
+  // {
+  //   title: 'yLibrary图书馆',
+  //   to: '/ylibrary',
+  // },
   {
     title: '表情图标合集',
     to: '/emojiLib',

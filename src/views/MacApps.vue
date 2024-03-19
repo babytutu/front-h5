@@ -41,11 +41,8 @@ onMounted(async () => {
     message: '加载中...',
     forbidClick: true,
   })
-  const res: any = await $http.post($apis.api('xml2js'), {
-    url: 'https://www.digit77.com/categories/macapps/index.xml',
-  })
-  const value = res.data.rss.channel.item
-  list.value = value.map((i: any) => {
+  const res: any = await $http.get($apis.api + '/macapps')
+  list.value = res.data.map((i: any) => {
     const { title, link, pubDate, description } = i
     return {
       title,

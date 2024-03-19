@@ -87,22 +87,13 @@ export default defineConfig({
   },
   server: {
     port: 9090,
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: (id: string) => {
-          if (id.includes('vant')) {
-            return 'vant'
-          }
-          if (id.includes('/views')) {
-            return 'views'
-          }
-          if (id.includes('node_modules')) {
-            return 'chunks'
-          }
-        },
-      },
-    },
+    // proxy: {
+    //   // 带选项写法：http://localhost:5173/api/bar -> http://jsonplaceholder.typicode.com/bar
+    //   '/apis': {
+    //     target: 'http://localhost:9999',
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/apis/, ''),
+    //   },
+    // },
   },
 })
