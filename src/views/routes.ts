@@ -50,22 +50,6 @@ export const routes = [
     component: () => import('@/views/iframePage.vue'),
   },
   {
-    path: '/imgList',
-    name: 'imgList',
-    meta: {
-      title: '随便写写',
-    },
-    component: () => import('@/views/imgList.vue'),
-  },
-  {
-    path: '/addItem',
-    name: 'addItem',
-    meta: {
-      title: '新增',
-    },
-    component: () => import('@/views/addItem.vue'),
-  },
-  {
     path: '/emojiLib',
     name: 'emojiLib',
     meta: {
