@@ -1,1 +1,0 @@
-import{a8 as o,as as r,N as l,g as p}from"./main-badb91ba.js";function c(s,{args:t=[],done:i,canceled:e,error:n}){if(s){const a=s.apply(null,t);o(a)?a.then(f=>{f?i():e&&e()}).catch(n||r):a?i():e&&e()}else i()}function x(s){const t=p();t&&l(t.proxy,s)}export{c,x as u};
