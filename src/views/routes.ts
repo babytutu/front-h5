@@ -42,14 +42,6 @@ export const routes = [
     component: () => import('@/views/MacApps.vue'),
   },
   {
-    path: '/yLibrary',
-    name: 'yLibrary',
-    meta: {
-      title: 'yLibrary图书馆',
-    },
-    component: () => import('@/views/yLibrary.vue'),
-  },
-  {
     path: '/url/:url/:title',
     name: 'url',
     meta: {

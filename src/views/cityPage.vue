@@ -88,33 +88,21 @@ const getInfoByCode = (code: string) => {
     forbidClick: true,
   })
 
-  $http
-    .post($apis.api('amap'), {
-      api: 'weather',
-      data: `city=${code}`,
-    })
-    .then((res: any) => {
-      cityInfo.value = res.forecasts[0]
-      closeToast()
-    })
+  $http.get($apis.api + `/weather/${code}`).then((res: any) => {
+    cityInfo.value = res.data
+    closeToast()
+  })
 }
 
 const getDistrictAll = () => {
-  $http
-    .post($apis.api('amap'), {
-      api: 'district',
-    })
-    .then((res: any) => {
-      const {
-        districts: [{ districts }],
-      } = res
-      districts.forEach((i: any) => {
-        areaList.value.province_list[i.adcode] = i.name
-        i.districts.forEach((j: any) => {
-          areaList.value.city_list[j.adcode] = j.name
-        })
+  $http.get($apis.api + '/district').then((res: any) => {
+    res.data.forEach((i: any) => {
+      areaList.value.province_list[i.adcode] = i.name
+      i.districts.forEach((j: any) => {
+        areaList.value.city_list[j.adcode] = j.name
       })
     })
+  })
 }
 
 onMounted(() => {
