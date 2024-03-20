@@ -15,10 +15,10 @@ export const home = [
     title: 'Mac软件',
     to: '/MacApps',
   },
-  // {
-  //   title: 'yLibrary图书馆',
-  //   to: '/ylibrary',
-  // },
+  {
+    title: 'yLibrary图书馆',
+    to: '/yLibrary',
+  },
   {
     title: '表情图标合集',
     to: '/emojiLib',
