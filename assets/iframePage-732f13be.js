@@ -1,0 +1,1 @@
+import{d as r,a as s,s as t,a0 as o,y as c}from"./main-2a870cc2.js";const n=["src"],i=r({__name:"iframePage",setup(m){const e=o(),a=s(()=>"//"+e.params.url);return(u,_)=>(c(),t("iframe",{src:a.value,frameborder:"0",width:"100%",height:"100%"},null,8,n))}});export{i as default};
