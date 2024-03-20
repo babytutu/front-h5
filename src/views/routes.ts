@@ -57,4 +57,12 @@ export const routes = [
     },
     component: () => import('@/views/emojiLib.vue'),
   },
+  {
+    path: '/yLibrary',
+    name: 'yLibrary',
+    meta: {
+      title: '图书馆',
+    },
+    component: () => import('@/views/yLibrary.vue'),
+  },
 ]
