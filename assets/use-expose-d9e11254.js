@@ -1,1 +1,0 @@
-import{ai as o,aa as r,Q as l,g as p}from"./main-2a870cc2.js";function c(s,{args:t=[],done:a,canceled:i,error:n}){if(s){const e=s.apply(null,t);o(e)?e.then(f=>{f?a():i&&i()}).catch(n||r):e?a():i&&i()}else a()}function x(s){const t=p();t&&l(t.proxy,s)}export{c,x as u};
