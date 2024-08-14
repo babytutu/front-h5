@@ -31,5 +31,6 @@ declare module '@vue/runtime-core' {
     VanPullRefresh: typeof import('vant/es')['PullRefresh']
     VanRow: typeof import('vant/es')['Row']
     VanStepper: typeof import('vant/es')['Stepper']
+    VanUploader: typeof import('vant/es')['Uploader']
   }
 }
